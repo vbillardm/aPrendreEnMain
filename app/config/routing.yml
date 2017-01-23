@@ -1,0 +1,11 @@
+acceuil_post:
+    resource: "@AcceuilBundle/Controller/PostController.php"
+    type:     annotation
+
+acceuil_members:
+    resource: "@AcceuilBundle/Controller/DefaultController.php"
+    type:     annotation
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
