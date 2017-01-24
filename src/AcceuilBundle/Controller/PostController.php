@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
-
 /**
  * Post controller.
  *
@@ -27,7 +26,6 @@ class PostController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $uM = $this->get('fos_user.user_manager');
 
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
 
@@ -42,6 +40,7 @@ class PostController extends Controller
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
         ));
+
     }
 
     /**

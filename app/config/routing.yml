@@ -1,6 +1,14 @@
+acceuil_user:
+    resource: "@AcceuilBundle/Controller/UserController.php"
+    type:     annotation
+
 acceuil_post:
     resource: "@AcceuilBundle/Controller/PostController.php"
     type:     annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+acceuil_admin:
+    resource: "@AcceuilBundle/Controller/AdminController.php"
+    type:     annotation
