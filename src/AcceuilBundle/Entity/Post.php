@@ -70,7 +70,7 @@ class Post
 
     public function __construct()
     {
-        $this->created = 
+        $this->created = new \DateTime('NOW');
     }
 
     /**
