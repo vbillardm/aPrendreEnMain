@@ -11,6 +11,7 @@ return array(
     'AcceuilBundle\\Controller\\PostController' => $baseDir . '/src/AcceuilBundle/Controller/PostController.php',
     'AcceuilBundle\\Entity\\Post' => $baseDir . '/src/AcceuilBundle/Entity/Post.php',
     'AcceuilBundle\\Entity\\User' => $baseDir . '/src/AcceuilBundle/Entity/User.php',
+    'AcceuilBundle\\EventListener\\UserListener' => $baseDir . '/src/AcceuilBundle/EventListener/UserListener.php',
     'AcceuilBundle\\Form\\PostType' => $baseDir . '/src/AcceuilBundle/Form/PostType.php',
     'AcceuilBundle\\Repository\\PostRepository' => $baseDir . '/src/AcceuilBundle/Repository/PostRepository.php',
     'AcceuilBundle\\Tests\\Controller\\PostControllerTest' => $baseDir . '/src/AcceuilBundle/Tests/Controller/PostControllerTest.php',

@@ -24,7 +24,7 @@ class PostController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
 
         return $this->render('post/index.html.twig', array(

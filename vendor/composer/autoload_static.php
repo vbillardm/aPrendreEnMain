@@ -238,6 +238,7 @@ class ComposerStaticInit8f16e9ff200ebb897755e6cf2d2fc1ac
         'AcceuilBundle\\Controller\\PostController' => __DIR__ . '/../..' . '/src/AcceuilBundle/Controller/PostController.php',
         'AcceuilBundle\\Entity\\Post' => __DIR__ . '/../..' . '/src/AcceuilBundle/Entity/Post.php',
         'AcceuilBundle\\Entity\\User' => __DIR__ . '/../..' . '/src/AcceuilBundle/Entity/User.php',
+        'AcceuilBundle\\EventListener\\UserListener' => __DIR__ . '/../..' . '/src/AcceuilBundle/EventListener/UserListener.php',
         'AcceuilBundle\\Form\\PostType' => __DIR__ . '/../..' . '/src/AcceuilBundle/Form/PostType.php',
         'AcceuilBundle\\Repository\\PostRepository' => __DIR__ . '/../..' . '/src/AcceuilBundle/Repository/PostRepository.php',
         'AcceuilBundle\\Tests\\Controller\\PostControllerTest' => __DIR__ . '/../..' . '/src/AcceuilBundle/Tests/Controller/PostControllerTest.php',
