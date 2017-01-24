@@ -5,6 +5,7 @@ namespace AcceuilBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use AcceuilBundle\Entity\User;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -56,17 +57,13 @@ class Post
      * @var string
      *
      * @ORM\Column(name="Path", type="string", length=255)
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/pjpeg", "image/jpeg", "image/png", "image/gif" })
      */
     private $path;
 
 
 
-    /**
-     * @var datetime $created
-     *
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
+
 
     public function __construct()
     {
