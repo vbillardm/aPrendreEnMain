@@ -4,6 +4,7 @@ namespace AcceuilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AcceuilBundle\Entity\User;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
@@ -58,6 +59,19 @@ class Post
      */
     private $path;
 
+
+
+    /**
+     * @var datetime $created
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    public function __construct()
+    {
+        
+    }
 
     /**
      * Get id

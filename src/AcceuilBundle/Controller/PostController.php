@@ -30,10 +30,7 @@ class PostController extends Controller
         $uM = $this->get('fos_user.user_manager');
 
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
-        if($post.length > 3)
-        {
-          
-        }
+        
 
 
         return $this->render('post/index.html.twig', array(
