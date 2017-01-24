@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Post controller.
@@ -30,7 +31,7 @@ class PostController extends Controller
         $uM = $this->get('fos_user.user_manager');
 
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
-        
+
 
 
         return $this->render('post/index.html.twig', array(
@@ -51,9 +52,24 @@ class PostController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            // Gets the user
             $user = $this->getUser();
+
+            // Gets the image from the form
+            $file = $post->getPath();
+
+            // Generates an unique ID for the image
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Moves the image to the post images directory
+            $file->move(
+                $this->getParameter('images_posts_directory'),
+                $fileName
+            );
+
+            $em = $this->getDoctrine()->getManager();
             $post->setAuthor($user);
+            $post->setPath($fileName);
             $em->persist($post);
             $em->flush($post);
 
@@ -90,15 +106,37 @@ class PostController extends Controller
      */
     public function editAction(Request $request, Post $post)
     {
+        $oldPath = $post->getPath();
+        $post->setPath(
+            new File($this->getParameter('images_posts_directory').'/'.$post->getPath())
+        );
         $deleteForm = $this->createDeleteForm($post);
         $editForm = $this->createForm('AcceuilBundle\Form\PostType', $post);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
+            // Gets the user
             $user = $this->getUser();
-            $post->setAuthor($user);
 
+            // Gets the image from the form
+            $file = $post->getPath();
+
+            // Generates an unique ID for the image
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Moves the image to the post images directory
+            $file->move(
+                $this->getParameter('images_posts_directory'),
+                $fileName
+            );
+
+            // Removes the old file
+            unlink($this->getParameter('images_posts_directory') . "/" . $oldPath);
+
+            // Changes the values
+            $post->setAuthor($user);
+            $post->setPath($fileName);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
