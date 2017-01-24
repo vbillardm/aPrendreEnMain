@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * Post controller.
@@ -24,8 +27,14 @@ class PostController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $uM = $this->get('fos_user.user_manager');
 
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
+        if($post.length > 3)
+        {
+          
+        }
+
 
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
@@ -46,6 +55,8 @@ class PostController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $post->setAuthor($user);
             $em->persist($post);
             $em->flush($post);
 
@@ -87,6 +98,10 @@ class PostController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $user = $this->getUser();
+            $post->setAuthor($user);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('post_edit', array('id' => $post->getId()));

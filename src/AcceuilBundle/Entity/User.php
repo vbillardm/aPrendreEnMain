@@ -19,10 +19,35 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\OnetoMany(targetEntity="Post", mappedBy="Post")
+     */
+    protected $posts;
 
     public function __construct()
     {
+        $this->posts = new ArrayCollection();
         parent::__construct();
         // your own logic
     }
+
+    public function addPost(Post $post)
+  {
+    $this->posts[] = $post;
+
+    return $this;
+  }
+
+  public function removePost(Post $post)
+  {
+    $this->posts->removeElement($post);
+  }
+
+  public function getPost()
+  {
+    return $this->posts;
+  }
+
 }

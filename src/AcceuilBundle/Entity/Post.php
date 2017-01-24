@@ -3,6 +3,7 @@
 namespace AcceuilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AcceuilBundle\Entity\User;
 
 /**
  * Post
@@ -38,7 +39,8 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=100)
+     * @ORM\JoinColumn(name="User_id", referencedColumnName="id")
+     * @ORM\ManytoOne(targetEntity="User", inversedBy="Post")
      */
     private $author;
 

@@ -23,6 +23,78 @@
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
     </parameter>
+    <parameter key="kernel.bundles_metadata" type="collection">
+      <parameter key="FrameworkBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
+      </parameter>
+      <parameter key="SecurityBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
+      </parameter>
+      <parameter key="TwigBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
+      </parameter>
+      <parameter key="MonologBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/monolog-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
+      </parameter>
+      <parameter key="SwiftmailerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/swiftmailer-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/doctrine/doctrine-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
+      </parameter>
+      <parameter key="SensioFrameworkExtraBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/sensio/framework-extra-bundle</parameter>
+        <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="AppBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/src/AppBundle</parameter>
+        <parameter key="namespace">AppBundle</parameter>
+      </parameter>
+      <parameter key="AcceuilBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/src/AcceuilBundle</parameter>
+        <parameter key="namespace">AcceuilBundle</parameter>
+      </parameter>
+      <parameter key="FOSUserBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/friendsofsymfony/user-bundle</parameter>
+        <parameter key="namespace">FOS\UserBundle</parameter>
+      </parameter>
+      <parameter key="DebugBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
+      </parameter>
+      <parameter key="WebProfilerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
+      </parameter>
+      <parameter key="SensioDistributionBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/sensio/distribution-bundle</parameter>
+        <parameter key="namespace">Sensio\Bundle\DistributionBundle</parameter>
+      </parameter>
+      <parameter key="SensioGeneratorBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/VBM/projects_web/a_prendre_en_main/vendor/sensio/generator-bundle</parameter>
+        <parameter key="namespace">Sensio\Bundle\GeneratorBundle</parameter>
+      </parameter>
+    </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
@@ -431,23 +503,44 @@
             <argument type="service" id="templating.locator"/>
           </service>
         </argument>
+        <argument type="service" id="kernel.class_cache.cache_warmer"/>
         <argument type="service">
-          <service class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer" public="false">
+          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="doctrine"/>
+            <argument type="service" id="translator"/>
           </service>
         </argument>
         <argument type="service">
-          <service class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
+          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="twig"/>
+            <argument type="service" id="validator.builder"/>
+            <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/validation.php</argument>
             <argument type="service">
-              <service class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
-                <argument type="service" id="kernel"/>
-                <argument>/Users/VBM/projects_web/a_prendre_en_main/app</argument>
-                <argument type="collection"/>
+              <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+                <tag name="cache.pool"/>
+                <tag name="cache.pool" clearer="cache.default_clearer"/>
+                <argument>xOXD5m+ctH</argument>
+                <argument>0</argument>
+                <argument>oGgJKWX4v96O4BO4uZ6vXo</argument>
+                <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/pools</argument>
+                <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+                <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
               </service>
             </argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer" public="false">
+            <tag name="kernel.cache_warmer"/>
+            <argument type="service" id="router"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
+            <tag name="kernel.cache_warmer"/>
+            <argument type="service" id="annotations.reader"/>
+            <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/annotations.php</argument>
+            <argument type="service" id="cache.annotations"/>
           </service>
         </argument>
         <argument type="service">
@@ -465,43 +558,22 @@
           </service>
         </argument>
         <argument type="service">
-          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
+          <service class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="annotations.reader"/>
-            <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/annotations.php</argument>
-            <argument type="service" id="cache.annotations"/>
-          </service>
-        </argument>
-        <argument type="service">
-          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer" public="false">
-            <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="router"/>
-          </service>
-        </argument>
-        <argument type="service">
-          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
-            <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="validator.builder"/>
-            <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/validation.php</argument>
+            <argument type="service" id="twig"/>
             <argument type="service">
-              <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-                <tag name="cache.pool"/>
-                <tag name="cache.pool" clearer="cache.default_clearer"/>
-                <argument>xOXD5m+ctH</argument>
-                <argument>0</argument>
-                <argument>t5eWJDDD1v1WMXm+LfqaLS</argument>
-                <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/pools</argument>
-                <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
-                <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+              <service class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
+                <argument type="service" id="kernel"/>
+                <argument>/Users/VBM/projects_web/a_prendre_en_main/app</argument>
+                <argument type="collection"/>
               </service>
             </argument>
           </service>
         </argument>
-        <argument type="service" id="kernel.class_cache.cache_warmer"/>
         <argument type="service">
-          <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
+          <service class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
-            <argument type="service" id="translator"/>
+            <argument type="service" id="doctrine"/>
           </service>
         </argument>
       </argument>
@@ -617,7 +689,7 @@
           <tag name="monolog.logger" channel="cache"/>
           <argument>DGcjD5okFB</argument>
           <argument>null</argument>
-          <argument>t5eWJDDD1v1WMXm+LfqaLS</argument>
+          <argument>oGgJKWX4v96O4BO4uZ6vXo</argument>
           <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
           <factory class="Symfony\Component\PropertyAccess\PropertyAccessor" method="createCache"/>
         </service>
@@ -638,7 +710,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>YteEFwMlhf</argument>
       <argument>0</argument>
-      <argument>t5eWJDDD1v1WMXm+LfqaLS</argument>
+      <argument>oGgJKWX4v96O4BO4uZ6vXo</argument>
       <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -648,7 +720,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>cKEHFOw9Xt</argument>
       <argument>0</argument>
-      <argument>t5eWJDDD1v1WMXm+LfqaLS</argument>
+      <argument>oGgJKWX4v96O4BO4uZ6vXo</argument>
       <argument>/Users/VBM/projects_web/a_prendre_en_main/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -947,16 +1019,16 @@
             <argument type="collection">
               <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
                 <argument>form.type_extension.form.http_foundation</argument>
-                <argument>form.type_extension.form.data_collector</argument>
-                <argument>form.type_extension.csrf</argument>
-                <argument>form.type_extension.upload.validator</argument>
                 <argument>form.type_extension.form.validator</argument>
-              </argument>
-              <argument key="Symfony\Component\Form\Extension\Core\Type\SubmitType" type="collection">
-                <argument>form.type_extension.submit.validator</argument>
+                <argument>form.type_extension.upload.validator</argument>
+                <argument>form.type_extension.csrf</argument>
+                <argument>form.type_extension.form.data_collector</argument>
               </argument>
               <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="collection">
                 <argument>form.type_extension.repeated.validator</argument>
+              </argument>
+              <argument key="Symfony\Component\Form\Extension\Core\Type\SubmitType" type="collection">
+                <argument>form.type_extension.submit.validator</argument>
               </argument>
             </argument>
             <argument type="collection">
@@ -1677,7 +1749,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
             <argument type="service" id="fos_user.user_provider.username"/>
-            <argument type="service" id="security.user_checker.main"/>
+            <argument type="service" id="security.user_checker"/>
             <argument>main</argument>
             <argument type="service" id="security.encoder_factory"/>
             <argument>true</argument>
@@ -1685,7 +1757,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5887151e734c40.70191694</argument>
+            <argument>5887373e5777c8.33211244</argument>
           </service>
         </argument>
       </argument>
@@ -1701,6 +1773,7 @@
     <service id="security.authentication.session_strategy" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
       <argument>migrate</argument>
     </service>
+    <service id="security.user_checker" class="Symfony\Component\Security\Core\User\UserChecker" public="false"/>
     <service id="security.authentication_utils" class="Symfony\Component\Security\Http\Authentication\AuthenticationUtils">
       <argument type="service" id="request_stack"/>
     </service>
@@ -1839,6 +1912,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/post</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_MEMBRE</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -1994,7 +2078,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5887151e734c40.70191694</argument>
+            <argument>5887373e5777c8.33211244</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2036,6 +2120,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/post</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_MEMBRE</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -2249,19 +2344,19 @@
       </call>
       <call method="addExtension">
         <argument type="service">
+          <service class="Twig_Extension_Debug" public="false">
+            <tag name="twig.extension"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\FormExtension" public="false">
             <tag name="twig.extension"/>
             <argument type="collection">
               <argument type="service" id="service_container"/>
               <argument>twig.form.renderer</argument>
             </argument>
-          </service>
-        </argument>
-      </call>
-      <call method="addExtension">
-        <argument type="service">
-          <service class="Twig_Extension_Debug" public="false">
-            <tag name="twig.extension"/>
           </service>
         </argument>
       </call>
@@ -2363,18 +2458,6 @@
       <tag name="twig.runtime"/>
       <argument type="service" id="fragment.handler"/>
     </service>
-    <service id="twig.form.renderer" class="Symfony\Bridge\Twig\Form\TwigRenderer">
-      <tag name="twig.runtime"/>
-      <argument type="service">
-        <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
-          <argument type="collection">
-            <argument>form_div_layout.html.twig</argument>
-          </argument>
-          <argument type="service" id="twig"/>
-        </service>
-      </argument>
-      <argument type="service" id="security.csrf.token_manager" on-invalid="null"/>
-    </service>
     <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor">
       <tag name="translation.extractor" alias="twig"/>
       <argument type="service" id="twig"/>
@@ -2392,6 +2475,18 @@
     <service id="twig.controller.preview_error" class="Symfony\Bundle\TwigBundle\Controller\PreviewErrorController">
       <argument type="service" id="http_kernel"/>
       <argument>twig.controller.exception:showAction</argument>
+    </service>
+    <service id="twig.form.renderer" class="Symfony\Bridge\Twig\Form\TwigRenderer">
+      <tag name="twig.runtime"/>
+      <argument type="service">
+        <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
+          <argument type="collection">
+            <argument>form_div_layout.html.twig</argument>
+          </argument>
+          <argument type="service" id="twig"/>
+        </service>
+      </argument>
+      <argument type="service" id="security.csrf.token_manager" on-invalid="null"/>
     </service>
     <service id="monolog.activation_strategy.not_found" class="Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy"/>
     <service id="monolog.handler.fingers_crossed.error_level_activation_strategy" class="Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy"/>
@@ -2684,7 +2779,7 @@
     </service>
     <service id="fos_user.security.login_manager" class="FOS\UserBundle\Security\LoginManager">
       <argument type="service" id="security.token_storage"/>
-      <argument type="service" id="security.user_checker.main"/>
+      <argument type="service" id="security.user_checker"/>
       <argument type="service" id="security.authentication.session_strategy"/>
       <argument type="service" id="request_stack"/>
       <argument>null</argument>
@@ -3090,55 +3185,6 @@
     <service id="security.password_encoder" class="Symfony\Component\Security\Core\Encoder\UserPasswordEncoder">
       <argument type="service" id="security.encoder_factory"/>
     </service>
-    <service id="security.user_checker.main" class="Symfony\Component\Security\Core\User\UserChecker"/>
-    <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
-      <tag name="twig.loader"/>
-      <argument type="service" id="templating.locator"/>
-      <argument type="service" id="templating.name_parser"/>
-      <argument>/Users/VBM/projects_web/a_prendre_en_main</argument>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
-        <argument>Framework</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
-        <argument>Security</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
-        <argument>Twig</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
-        <argument>Swiftmailer</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/doctrine/doctrine-bundle/Resources/views</argument>
-        <argument>Doctrine</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/src/AcceuilBundle/Resources/views</argument>
-        <argument>Acceuil</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
-        <argument>FOSUser</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
-        <argument>Debug</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
-        <argument>WebProfiler</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/app/Resources/views</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
-      </call>
-    </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
       <argument>app</argument>
       <call method="pushProcessor">
@@ -3249,6 +3295,54 @@
         </service>
       </argument>
       <argument>AcceuilBundle\Entity\User</argument>
+    </service>
+    <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
+      <tag name="twig.loader"/>
+      <argument type="service" id="templating.locator"/>
+      <argument type="service" id="templating.name_parser"/>
+      <argument>/Users/VBM/projects_web/a_prendre_en_main</argument>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/src/AcceuilBundle/Resources/views</argument>
+        <argument>Acceuil</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
+        <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/app/Resources/views</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/VBM/projects_web/a_prendre_en_main/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+      </call>
     </service>
     <service id="cache.app_clearer" alias="cache.default_clearer"/>
     <service id="session.storage" alias="session.storage.native"/>
