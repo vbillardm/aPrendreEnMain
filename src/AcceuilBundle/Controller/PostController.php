@@ -29,6 +29,7 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $uM = $this->get('fos_user.user_manager');
+        $user = $this->getUser();
 
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
         if(count($posts) > 3)
@@ -36,11 +37,13 @@ class PostController extends Controller
           $postsLimit3 = array_slice($posts,-3,3,true);
           return $this->render('post/index.html.twig', array(
               'posts' => $postsLimit3,
+              'user' => $user,
           ));
         }
 
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
+            'user' => $user,
         ));
     }
 
@@ -96,10 +99,12 @@ class PostController extends Controller
     public function showAction(Post $post)
     {
         $deleteForm = $this->createDeleteForm($post);
+        $user = $this->getUser();
 
         return $this->render('post/show.html.twig', array(
             'post' => $post,
             'delete_form' => $deleteForm->createView(),
+            'user' => $user,
         ));
     }
 

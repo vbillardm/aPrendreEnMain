@@ -9,3 +9,7 @@ services:
        arguments: ["@fos_user.user_manager","@doctrine.orm.entity_manager"]
        tags:
             - { name: kernel.event_subscriber }
+
+   authentication.handler.login_success_handler:
+       class:  AcceuilBundle\Security\LoginSuccessHandler
+       arguments:  ['@router', '@security.authorization_checker']

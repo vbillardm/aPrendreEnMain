@@ -21,10 +21,12 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
+        $user = $this->getUser();
 
         return $this->render('AcceuilBundle:Admin:index.html.twig',array(
           'posts' => $posts,
           'users' => $users,
+          'user' => $user,
         ));
     }
 }

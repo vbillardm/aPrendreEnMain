@@ -36,13 +36,22 @@
         <li>
             <a href="{{ path('post_index') }}">Back to the list</a>
         </li>
-        <li>
-            <a href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
+          {% if post.author == user %}
+          <li>
+              <a href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
+          </li>
+          {% endif %}
+
+        {% for role in user.roles %}
+          {% if role == "ROLE_ADMIN"%}
+          <li>
+              {{ form_start(delete_form) }}
+                  <input type="submit" value="Delete">
+              {{ form_end(delete_form) }}
+          </li>
+          {% endif %}
+        {% endfor %}
+
     </ul>
 {% endblock %}

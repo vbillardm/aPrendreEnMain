@@ -12,3 +12,7 @@ fos_user:
 acceuil_admin:
     resource: "@AcceuilBundle/Controller/AdminController.php"
     type:     annotation
+
+acceuil_default:
+    resource: "@AcceuilBundle/Controller/DefaultController.php"
+    type:     annotation
