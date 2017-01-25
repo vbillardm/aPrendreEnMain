@@ -5,13 +5,14 @@ namespace AccueilBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Config
+ *
  * @ORM\Table(name="config")
  * @ORM\Entity(repositoryClass="AcceuilBundle\Repository\ConfigRepository")
  */
-class Config {
+class Config
+{
     /**
      * @var int
      *
