@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'navbaradmin.html.twig' %}
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <h1>Newsletter subscriber list</h1>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mail in mails %}
+                <tr>
+                    <td><a href="{{ path('news_show', { 'id': news.id }) }}">{{ news.id }}</a></td>
+                    <td>{{ news.title }}</td>
+                    <td>{{ news.description }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('news_show', { 'id': news.id }) }}">Inspecter</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('news_edit', { 'id': news.id }) }}">Éditer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('news_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
+    </div>
+{% endblock %}
