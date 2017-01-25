@@ -6,6 +6,7 @@ namespace AcceuilBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -26,6 +27,17 @@ class User extends BaseUser
      * @ORM\OnetoMany(targetEntity="Post", mappedBy="Post")
      */
     protected $posts;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Path", type="string", length=255)
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/pjpeg", "image/jpeg", "image/png", "image/gif" })
+     */
+    private $path;
+
+
 
     public function __construct()
     {
@@ -49,6 +61,30 @@ class User extends BaseUser
   public function getPost()
   {
     return $this->posts;
+  }
+
+  /**
+   * Set path
+   *
+   * @param string $path
+   *
+   * @return Post
+   */
+  public function setPath($path)
+  {
+      $this->path = $path;
+
+      return $this;
+  }
+
+  /**
+   * Get path
+   *
+   * @return string
+   */
+  public function getPath()
+  {
+      return $this->path;
   }
 
 }

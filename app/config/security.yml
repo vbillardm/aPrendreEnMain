@@ -25,7 +25,7 @@ security:
                 check_path: /login_check
                 login_path: /login
                 always_use_default_target_path: false
-                success_handler: authentication.handler.login_success_handler  
+                success_handler: authentication.handler.login_success_handler
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
                 failure_path: http://dennis--nedry.tumblr.com/image/138108023356
