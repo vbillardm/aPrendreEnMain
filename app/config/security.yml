@@ -31,9 +31,6 @@ security:
                 failure_path: http://dennis--nedry.tumblr.com/image/138108023356
                 use_referer: true
 
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
             logout:
               path: fos_user_security_logout
               target: /

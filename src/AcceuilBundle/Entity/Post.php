@@ -26,21 +26,27 @@ class Post
 
     /**
      * @var string
-     *
+     * // POur la présentation //
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
-     *
+     * // POur le projet //
+     * @ORM\Column(name="projectTitle", type="string", length=255,nullable=true)
+     */
+    private $projectTitle;
+    /**
+     * @var string
+     * // POur la présentation //
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
 
     /**
      * @var string
-     *
+     * // POur la article //
      * @ORM\JoinColumn(name="User_id", referencedColumnName="id")
      * @ORM\ManytoOne(targetEntity="User", inversedBy="Post")
      */
@@ -48,7 +54,7 @@ class Post
 
     /**
      * @var string
-     *
+     * // POur la présentation //
      * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
@@ -61,7 +67,35 @@ class Post
      */
     private $path;
 
+    /** ////////////////////  PROJECT ////////////////////////////*/
 
+    /**
+     * @var text
+     * // POur la présentation //
+     * @ORM\Column(name="contexte", type="text", nullable=true)
+     */
+    private $contexte;
+
+    /**
+     * @var text
+     * // POur la présentation //
+     * @ORM\Column(name="objectifChiffre", type="text", nullable=true)
+     */
+    private $objectifChiffre;
+
+    /**
+     * @var text
+     * // POur la présentation //
+     * @ORM\Column(name="coutProjet", type="text", nullable=true)
+     */
+    private $coutProjet;
+
+    /**
+     * @var text
+     * // POur la présentation //
+     * @ORM\Column(name="dateRealisation", type="date", nullable=true)
+     */
+    private $dateRealisation;
 
 
 
@@ -198,5 +232,98 @@ class Post
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * Set contexte
+     *
+     * @param string $contexte
+     *
+     * @return Post
+     */
+    public function setContext($contexte)
+    {
+        $this->context = $contexte;
+
+        return $this;
+    }
+
+    /**
+     * Get contexte
+     *
+     * @return string
+     */
+    public function getContexte()
+    {
+        return $this->context;
+    }
+    /**
+     * Set objectifChiffre
+     *
+     * @param string $objectifChiffre
+     *
+     * @return Post
+     */
+    public function setObjectifChiffre($objectifChiffre)
+    {
+        $this->objectifChiffre = $objectifChiffre;
+
+        return $this;
+    }
+
+    /**
+     * Get objectifChiffre
+     *
+     * @return string
+     */
+    public function getObjectifChiffre()
+    {
+        return $this->$objectifChiffre;
+    }
+    /**
+     * Set coutProjet
+     *
+     * @param string $coutProjet
+     *
+     * @return Post
+     */
+    public function setCoutProjet($coutProjet)
+    {
+        $this->coutProjet = $coutProjet;
+
+        return $this;
+    }
+
+    /**
+     * Get coutProjet
+     *
+     * @return string
+     */
+    public function getCoutProjet()
+    {
+        return $this->$coutProjet;
+    }
+    /**
+     * Set dateRealisation
+     *
+     * @param date $dateRealisation
+     *
+     * @return Post
+     */
+    public function setDateRealisation($dateRealisation)
+    {
+        $this->dateRealisation = $dateRealisation;
+
+        return $this;
+    }
+
+    /**
+     * Get $dateRealisation
+     *
+     * @return string
+     */
+    public function getDateRealisation()
+    {
+        return $this->$dateRealisation;
     }
 }
