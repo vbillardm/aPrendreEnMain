@@ -12,3 +12,4 @@ parameters:
     secret: f676272985a09243bfe115806af6d6d0ad65ebcc
     images_posts_directory: '%kernel.root_dir%/../web/uploads/images/posts'
     images_users_directory: '%kernel.root_dir%/../web/uploads/images/users'
+    images_news_directory: '%kernel.root_dir%/../web/uploads/images/news'
