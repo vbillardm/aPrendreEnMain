@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Controller\RegistrationController;
 use FOS\UserBundle\Util\LegacyFormHelper;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * User controller.
@@ -47,7 +48,20 @@ class UserController extends RegistrationController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Gets the image from the form
+            $file = $user->getPath();
+
+            // Generates an unique ID for the image
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Moves the image to the post images directory
+            $file->move(
+                $this->getParameter('images_users_directory'),
+                $fileName
+            );
+
             $em = $this->getDoctrine()->getManager();
+            $user->setPath($fileName);
             $em->persist($user);
             $em->flush($user);
 
@@ -84,11 +98,31 @@ class UserController extends RegistrationController
      */
     public function editAction(Request $request, User $user)
     {
+        $oldPath = $user->getPath();
+        $user->setPath(
+            new File($this->getParameter('images_users_directory').'/'.$user->getPath())
+        );
         $deleteForm = $this->createDeleteForm($user);
         $editForm = $this->createForm('AcceuilBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            // Gets the image from the form
+            $file = $user->getPath();
+
+            // Generates an unique ID for the image
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Moves the image to the post images directory
+            $file->move(
+                $this->getParameter('images_users_directory'),
+                $fileName
+            );
+
+            // Removes the old file
+            unlink($this->getParameter('images_users_directory') . "/" . $oldPath);
+
+            $user->setPath($fileName);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
