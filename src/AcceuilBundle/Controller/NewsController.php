@@ -70,6 +70,7 @@ class NewsController extends Controller
         return $this->render('news/new.html.twig', array(
             'news' => $news,
             'form' => $form->createView(),
+            'user' => $this->getUser(),
         ));
     }
 
@@ -86,6 +87,7 @@ class NewsController extends Controller
         return $this->render('news/show.html.twig', array(
             'news' => $news,
             'delete_form' => $deleteForm->createView(),
+            'user' => $this->getUser(),
         ));
     }
 
@@ -132,6 +134,7 @@ class NewsController extends Controller
             'news' => $news,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'user' => $this->getUser(),
         ));
     }
 

@@ -89,6 +89,7 @@ class PostController extends Controller
         return $this->render('post/new.html.twig', array(
             'post' => $post,
             'form' => $form->createView(),
+            'user' => $this->getUser(),
         ));
     }
 
@@ -151,13 +152,17 @@ class PostController extends Controller
             $post->setPath($fileName);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
+            return $this->redirectToRoute('post_edit', array(
+                'id' => $post->getId(),
+                'user' => $this->getUser(),
+            ));
         }
 
         return $this->render('post/edit.html.twig', array(
             'post' => $post,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'user' => $this->getUser(),
         ));
     }
 

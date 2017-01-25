@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AcceuilBundle\Entity\Post;
 use AcceuilBundle\Entity\User;
+use AcceuilBundle\Entity\Custom;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -22,7 +23,7 @@ class AdminController extends Controller
         $news = $em->getRepository('AcceuilBundle:News')->findAll();
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
-        $configs = $em->getRepository('AcceuilBundle:Config')->findAll();
+        $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
         $user = $this->getUser();
 
         return $this->render('AcceuilBundle:Admin:index.html.twig',array(
@@ -30,7 +31,7 @@ class AdminController extends Controller
           'users' => $users,
           'user' => $user,
           'news' => $news,
-          'configs' => $users
+          'custom' => $custom
         ));
     }
 }
