@@ -37,11 +37,20 @@ class User extends BaseUser
     private $path;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=255555)
+     */
+    private $description;
+
+
 
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         parent::__construct();
+        $this->addRole('ROLE_MEMBRE');
     }
 
     public function addPost(Post $post)
@@ -59,6 +68,30 @@ class User extends BaseUser
   public function getPost()
   {
     return $this->posts;
+  }
+
+  /**
+   * Set description
+   *
+   * @param string description
+   *
+   * @return User
+   */
+  public function setDescription($description)
+  {
+      $this->description = $description;
+
+      return $this;
+  }
+
+  /**
+   * Get description
+   *
+   * @return string
+   */
+  public function getDescription()
+  {
+      return $this->description;
   }
 
   /**
@@ -84,4 +117,6 @@ class User extends BaseUser
   {
       return $this->path;
   }
+
+
 }
