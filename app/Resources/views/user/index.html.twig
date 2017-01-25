@@ -1,50 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Users list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.email }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a href="{{ path('fos_user_security_logout') }}">Log_out</a>
-        </li>
-    </ul>
-    <ul>
-      <li>
-        <a href="{{ path('acceuil_admin_index') }}">Admin</a>
-      </li>
-    </ul>
+  {% include 'navbaradmin.html.twig' %}
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <h1>Users list</h1>
+      <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for user in users %}
+              <tr>
+                  <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.password }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                      <ul>
+                          <li>
+                              <a href="{{ path('user_show', { 'id': user.id }) }}">Inspecter</a>
+                          </li>
+                          <li>
+                              <a href="{{ path('user_edit', { 'id': user.id }) }}">Éditer</a>
+                          </li>
+                      </ul>
+                  </td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      <a href="{{ path('user_new') }}"><button class="btn btn-success">Créer un nouvel utilisateur</button></a>
+    </div>
 {% endblock %}

@@ -2,7 +2,11 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{ path('acceuil_admin_index') }}"><button class="btn btn-primary">Panneau d'administration</button></a></li>
+      {% for role in user.roles %}
+        {% if role == "ROLE_ADMIN"%}
+        <li><a href="{{ path('acceuil_admin_index') }}"><button class="btn btn-primary">Panneau d'administration</button></a></li>
+        {% endif %}
+      {% endfor %}
       <li><a href="{{ path('fos_user_security_logout') }}"><button class="btn btn-danger">Déconnexion</button></a></li>
     </ul>
   </div>
