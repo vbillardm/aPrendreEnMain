@@ -1,59 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Posts list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Author</th>
-                <th>Contenu</th>
-                <th>Path</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td>{{ post.title }}</td>
-                <td>{{ post.description }}</td>
-                <td>{{ post.author }}</td>
-                <td>{{ post.contenu }}</td>
-                <td>{{ post.path }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('post_show', { 'id': post.id }) }}">show</a>
-                        </li>
-                        {% if post.author == user %}
-                        <li>
-                            <a href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('post_new') }}">Create a new post</a>
-        </li>
-    </ul>
-
-    <ul>
-        <li>
-            <a href="{{ path('fos_user_security_logout') }}">Log_out</a>
-        </li>
-    </ul>
-    <ul>
-      <li>
-          <a href="{{ path('acceuil_admin_index') }}">Admin</a>
-      </li>
-    </ul>
-
+  {% include 'navbaradmin.html.twig' %}
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <h1>Liste des posts</h1>
+      <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Author</th>
+                  <th>Contenu</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for post in posts %}
+              <tr>
+                  <td>{{ post.title }}</td>
+                  <td>{{ post.description }}</td>
+                  <td>{{ post.author }}</td>
+                  <td>{{ post.contenu }}</td>
+                  <td>
+                      <ul>
+                          <li>
+                              <a href="{{ path('post_show', { 'id': post.id }) }}">Inspecter</a>
+                          </li>
+                          {% if post.author == user %}
+                          <li>
+                              <a href="{{ path('post_edit', { 'id': post.id }) }}">Éditer</a>
+                          </li>
+                          {% endif %}
+                      </ul>
+                  </td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      <a href="{{ path('post_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
+    </div>
 {% endblock %}
