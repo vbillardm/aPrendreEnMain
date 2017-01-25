@@ -42,7 +42,6 @@ class User extends BaseUser
     {
         $this->posts = new ArrayCollection();
         parent::__construct();
-        $this->addRole('ROLE_MEMBRE');
     }
 
     public function addPost(Post $post)
@@ -85,5 +84,4 @@ class User extends BaseUser
   {
       return $this->path;
   }
-
 }

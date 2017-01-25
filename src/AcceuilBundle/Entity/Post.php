@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use AcceuilBundle\Entity\User;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
  * Post
@@ -34,7 +36,7 @@ class Post
     /**
      * @var string
      * // POur le projet //
-     * @ORM\Column(name="projectTitle", type="string", length=255,nullable=true)
+     * @ORM\Column(name="projectTitle", type="string", length=255)
      */
     private $projectTitle;
     /**
@@ -67,33 +69,31 @@ class Post
      */
     private $path;
 
-    /** ////////////////////  PROJECT ////////////////////////////*/
-
     /**
-     * @var text
+     * @var string
      * // POur la présentation //
-     * @ORM\Column(name="contexte", type="text", nullable=true)
+     * @ORM\Column(name="conText", type="text", nullable=true)
      */
-    private $contexte;
+    private $conText;
 
     /**
-     * @var text
-     * // POur la présentation //
-     * @ORM\Column(name="objectifChiffre", type="text", nullable=true)
+     * @var string
+     *
+     *@ORM\Column(name="objectifChiffre",type="text",length=65535,nullable=true)
      */
     private $objectifChiffre;
 
     /**
-     * @var text
+     * @var string
      * // POur la présentation //
-     * @ORM\Column(name="coutProjet", type="text", nullable=true)
+     * @ORM\Column(name="coutProjet", type="text",nullable=true)
      */
     private $coutProjet;
 
     /**
-     * @var text
+     * @var string
      * // POur la présentation //
-     * @ORM\Column(name="dateRealisation", type="date", nullable=true)
+     * @ORM\Column(name="dateRealisation", type="date",nullable=true)
      */
     private $dateRealisation;
 
@@ -235,27 +235,27 @@ class Post
     }
 
     /**
-     * Set contexte
+     * Set conText
      *
-     * @param string $contexte
+     * @param string $conText
      *
      * @return Post
      */
-    public function setContext($contexte)
+    public function setConText($conText)
     {
-        $this->context = $contexte;
+        $this->conText = $conText;
 
         return $this;
     }
 
     /**
-     * Get contexte
+     * Get conText
      *
      * @return string
      */
-    public function getContexte()
+    public function getConText()
     {
-        return $this->context;
+        return $this->conText;
     }
     /**
      * Set objectifChiffre
@@ -278,7 +278,7 @@ class Post
      */
     public function getObjectifChiffre()
     {
-        return $this->$objectifChiffre;
+        return $this->objectifChiffre;
     }
     /**
      * Set coutProjet
@@ -301,7 +301,7 @@ class Post
      */
     public function getCoutProjet()
     {
-        return $this->$coutProjet;
+        return $this->coutProjet;
     }
     /**
      * Set dateRealisation
@@ -324,6 +324,30 @@ class Post
      */
     public function getDateRealisation()
     {
-        return $this->$dateRealisation;
+        return $this->dateRealisation;
+    }
+
+    /**
+     * Set projectTitle
+     *
+     * @param string $projectTitle
+     *
+     * @return Post
+     */
+    public function setProjectTitle($projectTitle)
+    {
+        $this->projectTitle = $projectTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get projectTitle
+     *
+     * @return string
+     */
+    public function getProjectTitle()
+    {
+        return $this->projectTitle;
     }
 }

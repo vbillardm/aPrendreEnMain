@@ -19,6 +19,7 @@ class AdminController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $news = $em->getRepository('AcceuilBundle:News')->findAll();
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
         $user = $this->getUser();
@@ -27,6 +28,7 @@ class AdminController extends Controller
           'posts' => $posts,
           'users' => $users,
           'user' => $user,
+          'news' => $news,
         ));
     }
 }

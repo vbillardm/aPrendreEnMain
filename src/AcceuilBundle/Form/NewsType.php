@@ -7,23 +7,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class PostType extends AbstractType
+class NewsType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-        ->add('title')
-        ->add('description')
-        ->add('contenu')
-        ->add('path', FileType::class)
-        ->add("conText")
-        ->add("projectTitle")
-        ->add("objectifChiffre")
-        ->add("coutProjet")
-        ->add("dateRealisation");
+        $builder->add('title')->add('path', FileType::class)->add('description');
     }
 
     /**
@@ -32,7 +23,7 @@ class PostType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AcceuilBundle\Entity\Post'
+            'data_class' => 'AcceuilBundle\Entity\News'
         ));
     }
 
@@ -41,7 +32,7 @@ class PostType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'acceuilbundle_post';
+        return 'acceuilbundle_news';
     }
 
 

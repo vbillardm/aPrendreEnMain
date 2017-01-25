@@ -11,7 +11,8 @@ use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\File\File;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 /**
  * Post controller.
  *
@@ -76,6 +77,7 @@ class PostController extends Controller
             );
 
             $em = $this->getDoctrine()->getManager();
+
             $post->setAuthor($user);
             $post->setPath($fileName);
             $em->persist($post);
