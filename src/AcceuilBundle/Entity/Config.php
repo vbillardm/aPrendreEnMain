@@ -1,6 +1,6 @@
 <?php
 
-namespace AccueilBundle\Entity
+namespace AccueilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -62,8 +62,9 @@ class Config {
       *
       * @return Config
       */
-     public function getKey() {
-         return $this->key;
+     public function setKey($key) {
+         $this->key = $key;
+         return $this;
      }
 
      /**
@@ -73,8 +74,9 @@ class Config {
       *
       * @return Config
       */
-     public function getValue() {
-         return $this->value;
+     public function setValue($value) {
+         $this->value = $value;
+         return $this;
      }
 }
 
