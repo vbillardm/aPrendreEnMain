@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+  {% include 'navbaradmin.html.twig' %}
     <h1>News creation</h1>
 
     {{ form_start(form) }}
@@ -8,15 +9,5 @@
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('news_index') }}">Back to the list</a>
-        </li>
-        <li>
-          <a href="{{ path('fos_user_security_logout') }}">Log_out</a>
-        </li>
-        <li>
-          <a href="{{ path('acceuil_admin_index') }}">Admin</a>
-        </li>
-    </ul>
+    <a href="{{ path('news_index') }}"><button class="btn btn-primary">Retour à la liste</button></a>
 {% endblock %}
