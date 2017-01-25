@@ -78,9 +78,8 @@ class PostController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            // $post->setAuthor($user);
-            // $post->setPath($fileName);
-
+            $post->setAuthor($user);
+            $post->setPath($fileName);
             $em->persist($post);
             $em->flush($post);
 
