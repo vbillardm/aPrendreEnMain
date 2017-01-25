@@ -1,1 +1,71 @@
-Hello World!
+<table border="1">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td class="name"></td>
+    </tr>
+    <tr>
+        <td>
+            Link
+        </td>
+        <td class="link"></td>
+    </tr>
+    <tr>
+        <td>
+            Goal
+        </td>
+        <td class="goal"></td>
+    </tr>
+    <tr>
+        <td>
+            Raised
+        </td>
+        <td class="raised"></td>
+    </tr>
+    <tr>
+        <td>
+            Finished
+        </td>
+        <td class="finished"></td>
+    </tr>
+    <tr>
+        <td>
+            Percentage
+        </td>
+        <td class="percentage"></td>
+    </tr>
+</table>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var getData = function() {
+            $.ajax({
+                url: 'https://api.ulule.com/v1/projects/stupeflip',
+                beforeSend: function(request) {
+                    request.setRequestHeader("Authorization", 'ApiKey ivanprunier:d810456f206b71c59b7fe2cdc6a671ad5ab37cc8');
+                },
+                type: 'GET',
+                success: function(data) {
+                    var name = data.name_fr;
+                    var link = data.absolute_url;
+                    var goal = data.goal;
+                    var raised = data.amount_raised;
+                    var finished = data.finished;
+                    var percentage = Math.floor((raised / goal) * 100);
+                    $('.name').html(name);
+                    $('.link').html(link)
+                    $('.goal').html(goal);
+                    $('.raised').html(raised);
+                    $('.finished').html(finished);
+                    $('.percentage').html(percentage + "%");
+                    console.log(data);
+                }
+            });
+        }
+        setInterval(function() {
+            getData();
+        }, 10000);
+    });
+</script>
