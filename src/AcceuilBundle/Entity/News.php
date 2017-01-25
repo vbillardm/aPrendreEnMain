@@ -127,3 +127,4 @@ class News
         return $this->description;
     }
 }
+?>

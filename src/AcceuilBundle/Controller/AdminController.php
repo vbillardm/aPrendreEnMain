@@ -22,6 +22,7 @@ class AdminController extends Controller
         $news = $em->getRepository('AcceuilBundle:News')->findAll();
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
+        $configs = $em->getRepository('AcceuilBundle:Config')->findAll();
         $user = $this->getUser();
 
         return $this->render('AcceuilBundle:Admin:index.html.twig',array(
@@ -29,6 +30,7 @@ class AdminController extends Controller
           'users' => $users,
           'user' => $user,
           'news' => $news,
+          'configs' => $users
         ));
     }
 }
