@@ -21,13 +21,14 @@ class UserListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FOSUserEvents::REGISTRATION_COMPLETED => "onRegistrationSuccess",
+            FOSUserEvents::REGISTRATION_CONFIRM => array('onRegistrationSuccess'),
         );
     }
 
     public function onRegistrationSuccess(FilterUserResponseEvent $event)
     {
         $user = $event->getUser();
+        $user->setEnabled(1);
         $user->addRole('ROLE_MEMBRE');
         $this->um->updateUser($user);
         $this->em->flush();

@@ -1,5 +1,4 @@
 <?php
-// src/AcceuilBundle/Entity/User.php
 
 namespace AcceuilBundle\Entity;
 
@@ -31,7 +30,7 @@ class User extends BaseUser
     {
         $this->posts = new ArrayCollection();
         parent::__construct();
-        // your own logic
+        $this->addRole('ROLE_MEMBRE');
     }
 
     public function addPost(Post $post)
