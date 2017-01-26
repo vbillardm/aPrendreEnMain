@@ -127,7 +127,7 @@
 <section id="memberSection">
 	<div class="headerSection">
 		<h1>L'equipe</h1>
-		<span class="highlightText">9 membres</span>
+		<span class="highlightText">{{users|length}} membres</span>
 	</div>
 
 	<div class="carouselMembers">
@@ -149,52 +149,18 @@
 <section id="newsSection">
 	<h1>actualites</h1>
 	<div class="carouselNews">
+		{% for new in news %}
 		<div class="news">
-			<img src="{{asset('img/headerNews.png')}}">
+			<img src="{{asset('uploads/images/news/' ~ new.path)}}">
 			<div class="content">
-			<span class="highlightText">24/01</span>
-			<h2>Titre</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			<a class="more">Lire la suite</a>
+			<span class="highlightText"></span>
+			<h2>{{new.title}}</h2>
+			<p>{{new.description|slice(0, 100)}} ...
+			<a class="more" target="_blank" href="news/{{new.id}}">Lire la suite</a>
 			</p>
 			</div>
 		</div>
-
-		<div class="news">
-			<img src="{{asset('img/headerNews.png')}}">
-			<div class="content">
-			<span class="highlightText">24/01</span>
-			<h2>Titre</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			<a class="more">Lire la suite</a>
-			</p>
-			</div>
-		</div>
-
-		<div class="news">
-			<img src="{{asset('img/headerNews.png')}}">
-			<div class="content">
-			<span class="highlightText">24/01</span>
-			<h2>Titre</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			<a class="more">Lire la suite</a>
-			</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal">
-	<img class="cross" src="{{asset('img/clear-button.svg')}}">
-		<div class="news">
-			<img src="{{asset('img/headerNews.png')}}">
-			<div class="content">
-			<span class="highlightText">24/01</span>
-			<h2>Titre</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			</p>
-			</div>
+		{% endfor %}
 	</div>
 </section>
 
