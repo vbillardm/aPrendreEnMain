@@ -24,6 +24,7 @@ class AdminController extends Controller
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
         $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
         $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
+        $mails = $em->getRepository('AcceuilBundle:Mail')->findAll();
         $user = $this->getUser();
 
         return $this->render('AcceuilBundle:Admin:index.html.twig',array(
@@ -31,7 +32,8 @@ class AdminController extends Controller
           'users' => $users,
           'user' => $user,
           'news' => $news,
-          'custom' => $custom
+          'custom' => $custom,
+          'mails' => $mails,
         ));
     }
 }

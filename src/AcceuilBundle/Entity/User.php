@@ -27,6 +27,13 @@ class User extends BaseUser
      */
     protected $posts;
 
+    /**
+     * @var string
+     * // POur la présentation //
+     * @ORM\Column(name="blaze", type="string", length=255)
+     */
+    private $blaze;
+
 
     /**
      * @var string
@@ -118,5 +125,28 @@ class User extends BaseUser
       return $this->path;
   }
 
+/**
+ * Set blaze
+ *
+ * @param string blaze
+ *
+ * @return User
+ */
+public function setBlaze($blaze)
+{
+    $this->blaze = $blaze;
+
+    return $this;
+}
+
+/**
+ * Get blaze
+ *
+ * @return string
+ */
+public function getBlaze()
+{
+    return $this->blaze;
+}
 
 }

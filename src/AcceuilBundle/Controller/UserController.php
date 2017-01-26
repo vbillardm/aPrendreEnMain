@@ -29,9 +29,11 @@ class UserController extends RegistrationController
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
+        $user= $this->getUser();
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
+            'user' => $user,
         ));
     }
 
