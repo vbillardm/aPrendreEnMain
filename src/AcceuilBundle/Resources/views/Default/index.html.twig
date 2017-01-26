@@ -38,13 +38,15 @@
 		<li><a href="contactSection">Contact</a></li>
 	</ul>
 </div>
-
+{% if posts %}
 <div class="financialLabel"><a href="#FinancialSection">Crowdfunding</a></div>
-
+{% endif %}
 <section id="mainHeader">
 	<h1>A prendre en main</h1>
 	<h2>Des projets collaboratifs pour une vie meilleure</h2>
+	{% if posts %}
 	<a href="#FinancialSection"><button>Participer</button></a>
+	{% endif %}
 	<div class="float"></div>
 	<ul>
 		<li><a href="#projectDescription"><img id="mouse" src="{{asset('img/mouse.svg')}}"></a>
