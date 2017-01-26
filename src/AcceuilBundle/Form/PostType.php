@@ -25,7 +25,8 @@ class PostType extends AbstractType
         ->add("coutProjet", null, array('label' => 'Coût du projet'))
         ->add("dateRealisation", null, array('label' => 'Date de réalisation'))
         ->add('localisation')
-        ->add('quote');
+        ->add('quote')
+        ->add('cost');
     }
 
     /**
