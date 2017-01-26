@@ -44,6 +44,36 @@ class News
      */
     private $description;
 
+    /**
+     * @var string
+     * @ORM\Column(name="datePublication", type="date", nullable=true)
+     */
+    private $datePublication;
+
+
+    /**
+     * Set datePublication
+     *
+     * @param date $datePublication
+     *
+     * @return News
+     */
+    public function setDatePublication($datePublication)
+    {
+        $this->datePublication = $datePublication;
+
+        return $this;
+    }
+
+    /**
+     * Get $datePublication
+     *
+     * @return string
+     */
+    public function getDatePublication()
+    {
+        return $this->datePublication;
+    }
 
     /**
      * Get id
