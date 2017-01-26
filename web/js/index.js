@@ -17,6 +17,7 @@ $('#send').on('click', function(){
       $.each(form.children,function(e,y){
         y.value = "";
       })
+      $('.alert-success')[0].style.display = "inline";
     });
   })
 });
