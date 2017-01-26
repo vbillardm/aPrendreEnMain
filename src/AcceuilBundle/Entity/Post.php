@@ -77,6 +77,13 @@ class Post
 
     /**
      * @var string
+     * // POur la présentation //
+     * @ORM\Column(name="cost", type="text")
+     */
+    private $cost;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="Path", type="string", length=255)
      * @Assert\File(mimeTypes={ "image/jpeg", "image/pjpeg", "image/jpeg", "image/png", "image/gif" })
@@ -127,7 +134,29 @@ class Post
     {
         return $this->id;
     }
+    /**
+     * Get cost
+     *
+     * @return int
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
 
+    /**
+     * Set cost
+     *
+     * @param string $cost
+     *
+     * @return Post
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
     /**
      * Set title
      *
@@ -151,6 +180,8 @@ class Post
     {
         return $this->title;
     }
+
+
     /**
      * Set $localisation
      *

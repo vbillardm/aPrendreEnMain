@@ -82,7 +82,7 @@
 			L'acces a une eau saine, notre priorite
 		</span>
 	</div>
-{% endfor %}
+
 
 	<div class="projectDetails">
 		<span class="projectTitle">Ce projet permettra</span>
@@ -100,13 +100,13 @@
 	<div class="headerSection">
 		<h1>Financement du projet</h1>
 		<h2>Comment participer ?</h2>
-		<span class="highlightText">23 678€</span>
+		<span class="highlightText">{{ post.cost}}€</span>
 		<h3>A récolter</h3>
 	</div>
 	<div class="financialDetails">
 		<span class="joinUs">Rejoins nous</span>
 		<span class="fundingSite">sur Ulule</span>
-		<p class="financialNumbers"><span>2 500</span>/23 638€ récoltés pour</p>
+		<p class="financialNumbers"><span>2 500</span>/{{post.cost}}€ récoltés pour</p>
 		<div class="progressionBar"></div>
 		<ul>
 		<li><img src="{{asset('img/wrench.png')}}">Les travaux</li>
@@ -119,6 +119,7 @@
 		</ul>
 	</div>
 </section>
+	{% endfor %}
 {% endif %}
 <section id="memberSection">
 	<div class="headerSection">
