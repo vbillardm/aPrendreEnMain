@@ -4,7 +4,7 @@ $('#send').on('click', function(){
   var email = form.children[4].value;
   var name = form.children[2].value;
   var sujet = form.children[6].value;
-  var content = form.children[3].value;
+  var content = form.children[7].value;
   $.ajax({
         method: "POST",
         url: "/sendmail",
