@@ -30,12 +30,16 @@
                           <li>
                               <a href="{{ path('post_edit', { 'id': post.id }) }}">Éditer</a>
                           </li>
+
                       </ul>
                   </td>
               </tr>
           {% endfor %}
           </tbody>
       </table>
+      <li>
+
+      </li>
       {% if posts == false %}
         <a href="{{ path('post_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
       {% endif %}
