@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class NewsletterType extends AbstractType
 {
@@ -14,7 +15,8 @@ class NewsletterType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('subject')->add('content');
+        $builder->add('subject', null, array('label' => 'Sujet du mail'))
+        ->add('content', TextareaType::class, array('label' => 'Contenu du mail'));
     }
 
     /**
