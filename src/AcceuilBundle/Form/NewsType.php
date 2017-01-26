@@ -16,7 +16,8 @@ class NewsType extends AbstractType
     {
         $builder->add('title')
         ->add('description')
-        ->add('path', FileType::class, array('label' => 'Photo'));
+        ->add('path', FileType::class, array('label' => 'Photo'))
+        ->add("datePublication", null, array('label' => 'Date de publication'));
     }
 
     /**

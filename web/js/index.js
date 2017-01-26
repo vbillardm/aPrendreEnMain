@@ -1,8 +1,9 @@
+$(document).ready(function(){
 var form = document.getElementsByClassName('sendmail')[0];
-$('#button').on('click', function(){
+$('#send').on('click', function(){
   var email = form.children[1].value;
-  var name = form.children[2].value;
-  var sujet = form.children[0].value;
+  var name = form.children[0].value;
+  var sujet = form.children[2].value;
   var content = form.children[3].value;
   $.ajax({
         method: "POST",
@@ -17,4 +18,5 @@ $('#button').on('click', function(){
         y.value = "";
       })
     });
-})
+  })
+});

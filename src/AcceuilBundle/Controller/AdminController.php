@@ -52,6 +52,7 @@ class AdminController extends Controller
       $content = $request->request->get('content');
       $sujet = $request->request->get('sujet');
       $em = $this->getDoctrine()->getManager();
+      $users = $em->getRepository('AcceuilBundle:User')->findAll();
 
       $message = \Swift_Message::newInstance()
             ->setSubject($sujet)
@@ -64,6 +65,7 @@ class AdminController extends Controller
 
       return $this->render('AcceuilBundle:default:index.html.twig',array(
         'user'=>$user,
+        'users' =>$users,
         'customs'=>$custom,
       ));
     }

@@ -54,29 +54,24 @@
 	</ul>
 
 </section>
-
+{% if posts %}
 <section id="charityDetails">
-	<h1>A prendre en main</h1>
+	{% for post in posts %}
+	<h1>{{ post.title }}</h1>
 	<h2>En quelques mots</h2>
-	<p>A-Prendre en main est une association de loi 1901 dont l’objet est de promouvoir et soutenir l’aide au développement économique et social des populations défavorisées en prônant leur —autonomie—. Les projets menés auront pour ambition de favoriser l’éducation des jeunes et/ou de participer à l’essor socio-économique des populations.
-	Elle a été créée en Janvier 2016 à l’initiative de Loïc Basseeck, Cédric Tchamen et Fabien Buchet.</p>
+	<p>{{ post.description }}</p>
 	<div class="rightSide">
 		<h3>Nos valeurs</h3>
 		<div class="highlight"><span class="highlightText">Diversite, Respect, Volonte d’aider, Partage.</span></div>
 	</div>
-	<p class="quotation">« Tout est parti d’un projet de voyage en 2014 à Douala (Cameroun) : Fabien et moi avions 46 kg de bagages non utilisés. Cela nous a donné l’idée de collecter des fournitures scolaires à Paris afin de les distribuer à des jeunes de Douala.
-	Nous ne pensions pas avoir un tel impact. Les sourires des jeunes rencontrés nous ont donné la volonté d’en faire plus.
-	Après plus d’une année d’hésitation et discussion, nous décidons avec Cédric de créer une association.
-	Celle-ci a pour vocation de donner à des jeunes, issus de milieux défavorisés, les moyens de disposer de leur destin. » – Loïc
-	</p>
+	<p class="quotation">{{post.quote}}</p>
 </section>
 
 <section id="projectDescription">
 	<div class="leftSide">
-		<h1>Approvisionnement en eau</h1>
-		<h2>Douala PK-11 (Cameroun)</h2>
-		<p>Pour notre premier projet, nous voulons implanter deux pompes à eau dans une localité au Cameroun, où le besoin est particulièrement préoccupant. En effet, dans la commune de Douala – PK11, quartier de Douala, composé environ de de 5000 habitants, 80% des habitants ne sont pas connectés au réseau de distribution d’eau potable.</p>
-		<p>Pour couvrir leur besoin en eau, certains habitants n’ont pas d’autre choix que de se ravitailler auprès de sources d’eau impropres à la consommation. C’est la source de plusieurs maladies hydriques rencontrées localement telles que la dysenterie amibienne, le choléra, la typhoïde etc.</p>
+		<h1>{{post.projectTitle}}</h1>
+		<h2>{{post.localisation}})</h2>
+		<p>{{post.conText}}</p>
 	</div>
 	<div class="rightSide">
 		<span class="highlightText">60%</span>
@@ -87,6 +82,7 @@
 			L'acces a une eau saine, notre priorite
 		</span>
 	</div>
+
 
 	<div class="projectDetails">
 		<span class="projectTitle">Ce projet permettra</span>
@@ -104,13 +100,13 @@
 	<div class="headerSection">
 		<h1>Financement du projet</h1>
 		<h2>Comment participer ?</h2>
-		<span class="highlightText">23 678€</span>
+		<span class="highlightText">{{ post.cost}}€</span>
 		<h3>A récolter</h3>
 	</div>
 	<div class="financialDetails">
 		<span class="joinUs">Rejoins nous</span>
 		<span class="fundingSite">sur Ulule</span>
-		<p class="financialNumbers"><span>2 500</span>/23 638€ récoltés pour</p>
+		<p class="financialNumbers"><span>2 500</span>/{{post.cost}}€ récoltés pour</p>
 		<div class="progressionBar"></div>
 		<ul>
 		<li><img src="{{asset('img/wrench.png')}}">Les travaux</li>
@@ -123,7 +119,8 @@
 		</ul>
 	</div>
 </section>
-
+	{% endfor %}
+{% endif %}
 <section id="memberSection">
 	<div class="headerSection">
 		<h1>L'equipe</h1>
@@ -183,7 +180,7 @@
 		<img src="{{asset('img/carte_afrique_contact.png')}}">
 	</div>
 	<img src="{{asset('img/letter.png')}}">
-	<form>
+	<form class="sendmail">
 		<img src="{{asset('img/travel.svg')}}">
 		<label for="name">Nom* :</label>
 		<input type="text" name="name" id="name">
@@ -215,6 +212,7 @@ src="//code.jquery.com/jquery-3.1.1.min.js"
 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/index.js')}}"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/slick-carousel/slick/slick.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
@@ -250,7 +248,7 @@ crossorigin="anonymous"></script>
   <input type="text" name="content" placeholder="Content">
   <input id="button" type="button">
 </form>
-<script src="{{ asset('js/index.js') }}"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
     var getData = function() {
