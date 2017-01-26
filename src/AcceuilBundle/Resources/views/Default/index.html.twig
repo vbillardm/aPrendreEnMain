@@ -54,7 +54,7 @@
 	</ul>
 
 </section>
-
+{% if posts %}
 <section id="charityDetails">
 	{% for post in posts %}
 	<h1>{{ post.title }}</h1>
@@ -83,6 +83,7 @@
 		</span>
 	</div>
 {% endfor %}
+
 	<div class="projectDetails">
 		<span class="projectTitle">Ce projet permettra</span>
 		<div class="projectIcons">
@@ -118,7 +119,7 @@
 		</ul>
 	</div>
 </section>
-
+{% endif %}
 <section id="memberSection">
 	<div class="headerSection">
 		<h1>L'equipe</h1>
