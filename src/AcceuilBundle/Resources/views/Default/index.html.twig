@@ -1,49 +1,289 @@
-<table border="1">
-    <tr>
-        <td>
-            Name
-        </td>
-        <td class="name"></td>
-    </tr>
-    <tr>
-        <td>
-            Link
-        </td>
-        <td class="link"></td>
-    </tr>
-    <tr>
-        <td>
-            Goal
-        </td>
-        <td class="goal"></td>
-    </tr>
-    <tr>
-        <td>
-            Raised
-        </td>
-        <td class="raised"></td>
-    </tr>
-    <tr>
-        <td>
-            Finished
-        </td>
-        <td class="finished"></td>
-    </tr>
-    <tr>
-        <td>
-            Percentage
-        </td>
-        <td class="percentage"></td>
-    </tr>
-</table>
-<form class="sendmail" method="post">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A prendre en main</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="../node_modules/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/styles.min.css')}}">
+</head>
+<body style="font-family: Lato">
+
+<header>
+<ul>
+	<li><img src="{{asset('img/logo.png')}}"></li>
+		<li><a href="#charityDetails">Le projet</a></li>
+		<li><a href="#FinancialSection">Crowdfunding</a></li>
+		<li><a href="#memberSection">L'équipe</a></li>
+		<li><a href="#newsSection">Les actus</a></li>
+		<li><a href="#partnersSection">Nos partenaires</a></li>
+		<li><a href="#contactSection">Contact</a></li>
+</ul>
+</header>
+
+<div class="openMenu">
+	<div class="one"></div>
+	<div class="two"></div>
+	<div class="three"></div>
+</div>
+
+<div class="menuBurger visible">
+	<ul>
+		<li><img src="{{asset('img/logo.png')}}"></li>
+		<li><a href="#charityDetails">Le projet</a></li>
+		<li><a href="#financialSection">Crowdfunding</a></li>
+		<li><a href="#membersSection">L'équipe</a></li>
+		<li><a href="#newsSection">Les actus</a></li>
+		<li><a href="#partnersSection">Nos partenaires</a></li>
+		<li><a href="contactSection">Contact</a></li>
+	</ul>
+</div>
+
+<div class="financialLabel"><a href="#FinancialSection">Crowdfunding</a></div>
+
+<section id="mainHeader">
+	<h1>A prendre en main</h1>
+	<h2>Des projets collaboratifs pour une vie meilleure</h2>
+	<a href="#FinancialSection"><button>Participer</button></a>
+	<div class="float"></div>
+	<ul>
+		<li><a href="#projectDescription"><img id="mouse" src="{{asset('img/mouse.svg')}}"></a>
+	<a href="#" class="playAnimation">Jouer l'animation</a></li>
+		<li><a href="#projectDescription"><img id="arrowDown" src="{{asset('img/arrowDown.svg')}}"></a>
+	<a href="#" class="playAnimation">Ou en savoir plus</a></li>
+	</ul>
+
+</section>
+
+<section id="charityDetails">
+	<h1>A prendre en main</h1>
+	<h2>En quelques mots</h2>
+	<p>A-Prendre en main est une association de loi 1901 dont l’objet est de promouvoir et soutenir l’aide au développement économique et social des populations défavorisées en prônant leur —autonomie—. Les projets menés auront pour ambition de favoriser l’éducation des jeunes et/ou de participer à l’essor socio-économique des populations.
+	Elle a été créée en Janvier 2016 à l’initiative de Loïc Basseeck, Cédric Tchamen et Fabien Buchet.</p>
+	<div class="rightSide">
+		<h3>Nos valeurs</h3>
+		<div class="highlight"><span class="highlightText">Diversite, Respect, Volonte d’aider, Partage.</span></div>
+	</div>
+	<p class="quotation">« Tout est parti d’un projet de voyage en 2014 à Douala (Cameroun) : Fabien et moi avions 46 kg de bagages non utilisés. Cela nous a donné l’idée de collecter des fournitures scolaires à Paris afin de les distribuer à des jeunes de Douala.
+	Nous ne pensions pas avoir un tel impact. Les sourires des jeunes rencontrés nous ont donné la volonté d’en faire plus.
+	Après plus d’une année d’hésitation et discussion, nous décidons avec Cédric de créer une association.
+	Celle-ci a pour vocation de donner à des jeunes, issus de milieux défavorisés, les moyens de disposer de leur destin. » – Loïc
+	</p>
+</section>
+
+<section id="projectDescription">
+	<div class="leftSide">
+		<h1>Approvisionnement en eau</h1>
+		<h2>Douala PK-11 (Cameroun)</h2>
+		<p>Pour notre premier projet, nous voulons implanter deux pompes à eau dans une localité au Cameroun, où le besoin est particulièrement préoccupant. En effet, dans la commune de Douala – PK11, quartier de Douala, composé environ de de 5000 habitants, 80% des habitants ne sont pas connectés au réseau de distribution d’eau potable.</p>
+		<p>Pour couvrir leur besoin en eau, certains habitants n’ont pas d’autre choix que de se ravitailler auprès de sources d’eau impropres à la consommation. C’est la source de plusieurs maladies hydriques rencontrées localement telles que la dysenterie amibienne, le choléra, la typhoïde etc.</p>
+	</div>
+	<div class="rightSide">
+		<span class="highlightText">60%</span>
+		<span class="description">De la population africaine n’a pas accès à l’eau potable.</span>
+	</div>
+	<div class="maskContent">
+		<span class="highlightText">
+			L'acces a une eau saine, notre priorite
+		</span>
+	</div>
+
+	<div class="projectDetails">
+		<span class="projectTitle">Ce projet permettra</span>
+		<div class="projectIcons">
+			<ul>
+				<li><img src="{{asset('img/medical.png')}}">Réduire les risques d’apparition et de propagation de maladies d’origine hydrique.</li>
+				<li><img src="{{asset('img/school.png')}}">Aux jeunes enfants, sur qui repose la tâche de la collecte de l’eau, de consacrer plus de temps à leurs études.</li>
+				<li><img src="{{asset('img/money.png')}}">aux femmes de pouvoir mener une activité économique (vente de denrées alimentaires).</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section id="FinancialSection">
+	<div class="headerSection">
+		<h1>Financement du projet</h1>
+		<h2>Comment participer ?</h2>
+		<span class="highlightText">23 678€</span>
+		<h3>A récolter</h3>
+	</div>
+	<div class="financialDetails">
+		<span class="joinUs">Rejoins nous</span>
+		<span class="fundingSite">sur Ulule</span>
+		<p class="financialNumbers"><span>2 500</span>/23 638€ récoltés pour</p>
+		<div class="progressionBar"></div>
+		<ul>
+		<li><img src="{{asset('img/wrench.png')}}">Les travaux</li>
+		<li><img src="{{asset('img/helmet.png')}}">L'équipement nécessaire</li>
+		<li><img src="{{asset('img/people.png')}}">La formation du commité local</li>
+		</ul>
+		<ul>
+		<li><img src="{{asset('img/presentation-whiteboard.png')}}">La formation des habitants</li>
+		<li><img src="{{asset('img/printed.png')}}">Les dépliants de sensilisation</li>
+		</ul>
+	</div>
+</section>
+
+<section id="memberSection">
+	<div class="headerSection">
+		<h1>L'equipe</h1>
+		<span class="highlightText">9 membres</span>
+	</div>
+
+	<div class="carouselMembers">
+    {% for user in users %}
+    	<div>
+    		<div class="memberCard">
+    			<div class="left"><img src="{{asset('uploads/images/users/' ~ user.path)}}"></div>
+    			<div class="right"><p class="memberName">{{user.blaze}}</p>
+    			<p class="memberDescription">{{user.description}}</div>
+    		</div>
+    	</div>
+    {% endfor %}
+	</div>
+
+	</div>
+	<span class="highlightText">engages</span>
+</section>
+
+<section id="newsSection">
+	<h1>actualites</h1>
+	<div class="carouselNews">
+		<div class="news">
+			<img src="{{asset('img/headerNews.png')}}">
+			<div class="content">
+			<span class="highlightText">24/01</span>
+			<h2>Titre</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<a class="more">Lire la suite</a>
+			</p>
+			</div>
+		</div>
+
+		<div class="news">
+			<img src="{{asset('img/headerNews.png')}}">
+			<div class="content">
+			<span class="highlightText">24/01</span>
+			<h2>Titre</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<a class="more">Lire la suite</a>
+			</p>
+			</div>
+		</div>
+
+		<div class="news">
+			<img src="{{asset('img/headerNews.png')}}">
+			<div class="content">
+			<span class="highlightText">24/01</span>
+			<h2>Titre</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			<a class="more">Lire la suite</a>
+			</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal">
+	<img class="cross" src="{{asset('img/clear-button.svg')}}">
+		<div class="news">
+			<img src="{{asset('img/headerNews.png')}}">
+			<div class="content">
+			<span class="highlightText">24/01</span>
+			<h2>Titre</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</p>
+			</div>
+	</div>
+</section>
+
+<section id="partnersSection">
+	<div class="headerSection">
+		<h1>Nos partenaires</h1>
+		<span class="highlightText">Notre soutien</span>
+	</div>
+	<ul>
+		<li><img src="{{asset('img/attineos.png')}}">Attineos</li>
+		<li><img src="{{asset('img/digital.png')}}">Digital village</li>
+		<li><img src="{{asset('img/montpellierbs.png')}}">Montpellier Business School</li>
+	</ul>
+</section>
+
+<section id="contactSection">
+	<div class="headerSection">
+		<h1>Nous contacter</h1>
+		<h2>Nous sommes là pour vous répondre</h2>
+		<img src="{{asset('img/carte_afrique_contact.png')}}">
+	</div>
+	<img src="{{asset('img/letter.png')}}">
+	<form>
+		<img src="{{asset('img/travel.svg')}}">
+		<label for="name">Nom* :</label>
+		<input type="text" name="name" id="name">
+
+		<label for="email">Email* :</label>
+		<input type="text" name="email" id="email">
+
+		<label for="subjet">Sujet</label>
+		<input type="text" name="subject" id="subject">
+
+		<textarea placeholder="Message"></textarea>
+	</form>
+	<input type="submit" id="send" name="sendMail" value="Envoyer">
+</section>
+
+<a href="#mainHeader"><img class="arrow-up" src="{{asset('img/arrows.svg')}}"></a>
+
+<footer>
+	<ul>
+		<li><img src="{{asset('img/facebook-logo.png')}}">Partager notre projet
+et  aidez nous à changer le monde</li>
+		<li><h1>a prendre en main</h1><img src="{{asset('img/logo.png')}}"></li>
+	</ul>
+</footer>
+</body>
+
+<script
+src="//code.jquery.com/jquery-3.1.1.min.js"
+integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/slick-carousel/slick/slick.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////
+<form class="sendmail" method="post" style="display: none">
   <input type="text" name="subject" placeholder="Sujet">
   <input type="text" name="email" placeholder="Email">
   <input type="text" name="name" placeholder="Name">
   <input type="text" name="content" placeholder="Content">
   <input id="button" type="button">
 </form>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="{{ asset('js/index.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -66,13 +306,6 @@ $(document).ready(function() {
                 var raised = data.amount_raised;
                 var finished = data.finished;
                 var percentage = Math.floor((raised / goal) * 100);
-                $('.name').html(name);
-                $('.link').html(link)
-                $('.goal').html(goal);
-                $('.raised').html(raised);
-                $('.finished').html(finished);
-                $('.percentage').html(percentage + "%");
-                console.log(data);
             }
         });
     }
@@ -83,3 +316,4 @@ $(document).ready(function() {
 });
 
 </script>
+-->

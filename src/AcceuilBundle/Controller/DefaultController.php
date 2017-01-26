@@ -26,6 +26,7 @@ class DefaultController extends Controller
         'user' => $user,
         'news' => $news,
         'customs' => $customs,
+        'users_images_path' => $this->getParameter('images_users_directory'),
       ));
     }
 }
