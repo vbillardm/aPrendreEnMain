@@ -33,6 +33,13 @@ class Post
      */
     private $title;
 
+
+    /**
+     * @var string
+     * @ORM\Column(name="localisation", type="string", length=255)
+     */
+    private $localisation;
+
     /**
      * @var string
      * // POur le projet //
@@ -42,9 +49,16 @@ class Post
     /**
      * @var string
      * // POur la présentation //
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text", length=2343232)
      */
     private $description;
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="quote", type="text", length=2343232)
+     */
+    private $quote;
 
     /**
      * @var string
@@ -60,6 +74,13 @@ class Post
      * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
+
+    /**
+     * @var string
+     * // POur la présentation //
+     * @ORM\Column(name="cost", type="text")
+     */
+    private $cost;
 
     /**
      * @var string
@@ -93,7 +114,7 @@ class Post
     /**
      * @var string
      * // POur la présentation //
-     * @ORM\Column(name="dateRealisation", type="date",nullable=true)
+     * @ORM\Column(name="dateRealisation", type="text",nullable=true)
      */
     private $dateRealisation;
 
@@ -113,7 +134,29 @@ class Post
     {
         return $this->id;
     }
+    /**
+     * Get cost
+     *
+     * @return int
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
 
+    /**
+     * Set cost
+     *
+     * @param string $cost
+     *
+     * @return Post
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
     /**
      * Set title
      *
@@ -136,6 +179,31 @@ class Post
     public function getTitle()
     {
         return $this->title;
+    }
+
+
+    /**
+     * Set $localisation
+     *
+     * @param string $localisation
+     *
+     * @return Post
+     */
+    public function setLocalisation($localisation)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return string
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
     }
 
     /**
@@ -184,6 +252,29 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+    /**
+     * Set quote
+     *
+     * @param string $quote
+     *
+     * @return Post
+     */
+    public function setQuote($quote)
+    {
+        $this->quote = $quote;
+
+        return $this;
+    }
+
+    /**
+     * Get quote
+     *
+     * @return string
+     */
+    public function getQuote()
+    {
+        return $this->quote;
     }
 
     /**
