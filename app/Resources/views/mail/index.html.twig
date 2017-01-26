@@ -4,7 +4,7 @@
 
     {% include 'navbaradmin.html.twig' %}
     <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <h1>Newsletter subscriber list</h1>
+        <h1>Liste des abonnés</h1>
         <table class="table table-hover table-striped">
             <thead>
             <tr>
@@ -16,23 +16,12 @@
             <tbody>
             {% for mail in mails %}
                 <tr>
-                    <td><a href="{{ path('news_show', { 'id': news.id }) }}">{{ news.id }}</a></td>
-                    <td>{{ news.title }}</td>
-                    <td>{{ news.description }}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('news_show', { 'id': news.id }) }}">Inspecter</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('news_edit', { 'id': news.id }) }}">Éditer</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <td>{{ mail.id }}</a></td>
+                    <td>{{ mail.name }}</td>
+                    <td>{{ mail.email }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-        <a href="{{ path('news_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
     </div>
 {% endblock %}

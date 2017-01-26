@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Madlax
- * Date: 25/01/2017
- * Time: 22:47
- */
 
 namespace AcceuilBundle\Controller;
 
@@ -34,20 +28,10 @@ class NewsletterController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $users = $em->getRepository('AcceuilBundle:Mail')->findAll();
+        $mails = $em->getRepository('AcceuilBundle:Mail')->findAll();
 
         return $this->render('mail/index.html.twig', array(
-            'users' => $users,
+            'mails' => $mails,
         ));
-    }
-
-    /**
-     * Creates a new user entity.
-     *
-     * @Route("/email", name="email_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(){
-        
     }
 }
