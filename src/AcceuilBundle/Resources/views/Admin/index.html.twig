@@ -17,10 +17,9 @@
           <table class="table table-hover table-striped">
           <thead>
               <tr>
-                  <th>Title</th>
+                  <th>Titre</th>
                   <th>Description</th>
-                  <th>Author</th>
-                  <th>Contenu</th>
+                  <th>Auteur</th>
                   <th>Actions</th>
               </tr>
           </thead>
@@ -30,7 +29,6 @@
                   <td>{{ post.title }}</td>
                   <td>{{ post.description }}</td>
                   <td>{{ post.author }}</td>
-                  <td>{{ post.contenu }}</td>
                   <td>
                       <ul>
                           <li>
@@ -53,16 +51,14 @@
           <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Username</th>
+                    <th>Nom d'utilisateur</th>
                     <th>Nom</th>
-                    <th>email</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
             {% for user in users %}
                 <tr>
-                    <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.blaze }}</td>
                     <td>{{ user.email }}</td>
@@ -88,8 +84,7 @@
          <table class="table table-hover table-striped">
              <thead>
                  <tr>
-                     <th>Id</th>
-                     <th>Title</th>
+                     <th>Titre</th>
                      <th>Description</th>
                      <th>Actions</th>
                  </tr>
@@ -97,7 +92,6 @@
              <tbody>
                {% for news in news %}
                    <tr>
-                       <td><a href="{{ path('news_show', { 'id': news.id }) }}">{{ news.id }}</a></td>
                        <td>{{ news.title }}</td>
                        <td>{{ news.description }}</td>
                        <td>
@@ -150,15 +144,13 @@
           <table class="table table-hover table-striped">
               <thead>
               <tr>
-                  <th>Id</th>
-                  <th>Name</th>
+                  <th>Nom</th>
                   <th>Email</th>
               </tr>
               </thead>
               <tbody>
               {% for mail in mails %}
                   <tr>
-                      <td>{{ mail.id }}</a></td>
                       <td>{{ mail.name }}</td>
                       <td>{{ mail.email }}</td>
                   </tr>
@@ -166,6 +158,7 @@
               </tbody>
           </table>
       </div>
+      <a href="{{ path('newsletter_new') }}"><button class="btn btn-success">Envoyer une newsletter</button></a>
     </div>
   </div>
 {% endblock %}

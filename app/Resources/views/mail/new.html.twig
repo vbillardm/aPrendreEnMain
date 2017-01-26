@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 
 {% block body %}
   {% include 'navbaradmin.html.twig' %}
-    <h1>Envoyer une newsletter</h1>
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <h3>Envoyer une newsletter</h3>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Envoyer" />
+        <button class="btn btn-success" type="submit">Envoyer</button>
     {{ form_end(form) }}
 
-    <a href="{{ path('newsletter_index') }}"><button class="btn btn-primary">Retour à la liste</button></a>
+    <a class="pull-right" href="{{ path('newsletter_index') }}"><button class="btn btn-primary">Retour à la liste</button></a>
+    </div>
 {% endblock %}
