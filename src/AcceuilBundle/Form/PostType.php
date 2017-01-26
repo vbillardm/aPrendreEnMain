@@ -15,15 +15,15 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('title')
+        ->add('title', null, array('label' => 'Titre'))
         ->add('description')
         ->add('contenu')
-        ->add('path', FileType::class)
-        ->add("conText")
-        ->add("projectTitle")
-        ->add("objectifChiffre")
-        ->add("coutProjet")
-        ->add("dateRealisation");
+        ->add('path', FileType::class, array('label' => 'Photo'))
+        ->add("conText", null, array('label' => 'Contexte'))
+        ->add("projectTitle", null, array('label' => 'Titre du projet'))
+        ->add("objectifChiffre", null, array('label' => 'Objectif financier'))
+        ->add("coutProjet", null, array('label' => 'Coût du projet'))
+        ->add("dateRealisation", null, array('label' => 'Date de réalisation'));
     }
 
     /**
