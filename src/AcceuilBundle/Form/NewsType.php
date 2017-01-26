@@ -14,7 +14,9 @@ class NewsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('path', FileType::class)->add('description');
+        $builder->add('title')
+        ->add('description')
+        ->add('path', FileType::class, array('label' => 'Photo'));
     }
 
     /**
