@@ -4,6 +4,7 @@ namespace AcceuilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AcceuilBundle\Entity\Post;
 use AcceuilBundle\Entity\User;
 use AcceuilBundle\Entity\Custom;
@@ -35,5 +36,35 @@ class AdminController extends Controller
           'custom' => $custom,
           'mails' => $mails,
         ));
+    }
+
+    /**
+     * Creates a new news entity.
+     *
+     * @Route("/sendmail", name="send_mail")
+     * @param Request $request
+     * @Method({"POST"})
+     */
+    public function sendmail(Request $request)
+    {
+      $email = $request->request->get('email');
+      $name = $request->request->get('name');
+      $content = $request->request->get('content');
+      $sujet = $request->request->get('sujet');
+      $em = $this->getDoctrine()->getManager();
+
+      $message = \Swift_Message::newInstance()
+            ->setSubject($sujet)
+            ->setFrom("aprendreenmain17@gmail.com")
+            ->setTo("aprendreenmain17@gmail.com")
+            ->setBody("Vous avez reçu un mail de la part de :".$name."<br>Email du contact:".$email."<br>Contenu du mail: ".$content, 'text/html');
+      $this->get('mailer')->send($message);
+      $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
+      $user = $this->getUser();
+
+      return $this->render('AcceuilBundle:default:index.html.twig',array(
+        'user'=>$user,
+        'customs'=>$custom,
+      ));
     }
 }

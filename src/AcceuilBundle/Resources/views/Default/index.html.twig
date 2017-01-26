@@ -36,42 +36,50 @@
         <td class="percentage"></td>
     </tr>
 </table>
-
+<form class="sendmail" method="post">
+  <input type="text" name="subject" placeholder="Sujet">
+  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="content" placeholder="Content">
+  <input id="button" type="button">
+</form>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{{ asset('js/index.js') }}"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        var getData = function() {
-            var ululeName = '{{customs[0].value}}';
-            var ululeKey = '{{customs[1].value}}';
-            var ululeProject = '{{customs[2].value}}';
-            var ajaxUrl = 'https://api.ulule.com/v1/projects/' + ululeProject;
-            var ajaxHeader = 'ApiKey ' +  ululeName + ':' + ululeKey;
-            $.ajax({
-                url: ajaxUrl,
-                beforeSend: function(request) {
-                    request.setRequestHeader("Authorization", ajaxHeader);
-                },
-                type: 'GET',
-                success: function(data) {
-                    var name = data.name_fr;
-                    var link = data.absolute_url;
-                    var goal = data.goal;
-                    var raised = data.amount_raised;
-                    var finished = data.finished;
-                    var percentage = Math.floor((raised / goal) * 100);
-                    $('.name').html(name);
-                    $('.link').html(link)
-                    $('.goal').html(goal);
-                    $('.raised').html(raised);
-                    $('.finished').html(finished);
-                    $('.percentage').html(percentage + "%");
-                    console.log(data);
-                }
-            });
-        }
+$(document).ready(function() {
+    var getData = function() {
+        var ululeName = '{{customs[0].value}}';
+        var ululeKey = '{{customs[1].value}}';
+        var ululeProject = '{{customs[2].value}}';
+        var ajaxUrl = 'https://api.ulule.com/v1/projects/' + ululeProject;
+        var ajaxHeader = 'ApiKey ' +  ululeName + ':' + ululeKey;
+        $.ajax({
+            url: ajaxUrl,
+            beforeSend: function(request) {
+                request.setRequestHeader("Authorization", ajaxHeader);
+            },
+            type: 'GET',
+            success: function(data) {
+                var name = data.name_fr;
+                var link = data.absolute_url;
+                var goal = data.goal;
+                var raised = data.amount_raised;
+                var finished = data.finished;
+                var percentage = Math.floor((raised / goal) * 100);
+                $('.name').html(name);
+                $('.link').html(link)
+                $('.goal').html(goal);
+                $('.raised').html(raised);
+                $('.finished').html(finished);
+                $('.percentage').html(percentage + "%");
+                console.log(data);
+            }
+        });
+    }
+    getData();
+    setInterval(function() {
         getData();
-        setInterval(function() {
-            getData();
-        }, 10000);
-    });
+    }, 10000);
+});
+
 </script>
