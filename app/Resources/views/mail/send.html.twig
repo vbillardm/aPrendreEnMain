@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% include 'navbaradmin.html.twig' %}
+    <div class="col-xs-12 col-md-10 col-md-offset-1 alert alert-success" role="alert">
+      <h1>Succès</h1>
+      <p>Votre newsletter a bien été envoyée.</p>
+      <a href="{{ path('newsletter_index') }}">Retour</a>
+    </div>
+{% endblock %}
