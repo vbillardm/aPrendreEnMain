@@ -24,3 +24,7 @@ acceuil_admin:
 acceuil_default:
     resource: "@AcceuilBundle/Controller/DefaultController.php"
     type:     annotation
+
+acceuil_custom:
+    resource: "@AcceuilBundle/Controller/CustomController.php"
+    type:     annotation

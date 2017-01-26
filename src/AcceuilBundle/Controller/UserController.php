@@ -29,9 +29,11 @@ class UserController extends RegistrationController
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('AcceuilBundle:User')->findAll();
+        $user= $this->getUser();
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
+            'user' => $user,
         ));
     }
 
@@ -69,7 +71,8 @@ class UserController extends RegistrationController
         }
 
         return $this->render('user/new.html.twig', array(
-            'user' => $user,
+            'user2' => $user,
+            'user' => $this->getUser(),
             'form' => $form->createView(),
         ));
     }
@@ -129,7 +132,8 @@ class UserController extends RegistrationController
         }
 
         return $this->render('user/edit.html.twig', array(
-            'user' => $user,
+            'user2' => $user,
+            'user' => $this->getUser(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

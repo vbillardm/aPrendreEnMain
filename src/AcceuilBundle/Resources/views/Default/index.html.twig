@@ -41,10 +41,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
         var getData = function() {
+            var ululeName = '{{customs[0].value}}';
+            var ululeKey = '{{customs[1].value}}';
+            var ululeProject = '{{customs[2].value}}';
+            var ajaxUrl = 'https://api.ulule.com/v1/projects/' + ululeProject;
+            var ajaxHeader = 'ApiKey ' +  ululeName + ':' + ululeKey;
             $.ajax({
-                url: 'https://api.ulule.com/v1/projects/stupeflip',
+                url: ajaxUrl,
                 beforeSend: function(request) {
-                    request.setRequestHeader("Authorization", 'ApiKey ivanprunier:d810456f206b71c59b7fe2cdc6a671ad5ab37cc8');
+                    request.setRequestHeader("Authorization", ajaxHeader);
                 },
                 type: 'GET',
                 success: function(data) {

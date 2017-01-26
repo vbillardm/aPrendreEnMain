@@ -8,6 +8,7 @@
       <li role="presentation"><a href="#utilisateurs" aria-controls="utilisateurs" role="tab" data-toggle="tab">Utilisateurs</a></li>
       <li role="presentation"><a href="#actualites" aria-controls="actualites" role="tab" data-toggle="tab">Actualités</a></li>
       <li role="presentation"><a href="#config" aria-controls="config" role="tab" data-toggle="tab">Configuration</a></li>
+      <li role="newsletter"><a href="#newsletter" aria-controls="newsletter" role="tab" data-toggle="tab">Newsletter</a></li>
   </ul><br/>
 
     <div class="tab-content">
@@ -53,8 +54,8 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>username</th>
-                    <th>password</th>
+                    <th>Username</th>
+                    <th>Nom</th>
                     <th>email</th>
                 </tr>
             </thead>
@@ -63,7 +64,7 @@
                 <tr>
                     <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
                     <td>{{ user.username }}</td>
-                    <td>{{ user.password }}</td>
+                    <td>{{ user.blaze }}</td>
                     <td>{{ user.email }}</td>
                     <td>
                         <ul>
@@ -143,6 +144,28 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="newsletter">
+      <div class="panel panel-default">
+          <table class="table table-hover table-striped">
+              <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for mail in mails %}
+                  <tr>
+                      <td>{{ mail.id }}</a></td>
+                      <td>{{ mail.name }}</td>
+                      <td>{{ mail.email }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+      </div>
     </div>
   </div>
 {% endblock %}
