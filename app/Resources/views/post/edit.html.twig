@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
+{% form_theme edit_form 'bootstrap_3_horizontal_layout.html.twig' %}
 
 {% block body %}
-    <h1>Post edit</h1>
+    {% include 'navbaradmin.html.twig' %}
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <h3>Editer le poste</h3>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <button class="btn btn-success" type="submit">Modifier</button>
     {{ form_end(edit_form) }}
-
-    <a href="{{ path('post_index') }}"><button class="btn btn-primary">Retour à la liste</button></a>
     {{ form_start(delete_form) }}
-        <input type="submit" value="Delete">
-    {{ form_end(delete_form) }} 
+        <br />
+        <button class="btn btn-danger" type="submit">Supprimer</button>
+    {{ form_end(delete_form) }}
+    <a class="pull-right" href="{{ path('post_index') }}"><button class="btn btn-primary">Retour à la liste</button></a>
 {% endblock %}
