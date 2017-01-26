@@ -44,7 +44,9 @@
           </tbody>
         </table>
       </div>
+      {% if posts == false %}
           <a href="{{ path('post_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
+      {% endif %}
       </div>
       <div role="tabpanel" class="tab-pane" id="utilisateurs">
       <div class="panel panel-default">
