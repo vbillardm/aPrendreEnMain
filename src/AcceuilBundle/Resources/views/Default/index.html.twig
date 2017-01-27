@@ -231,30 +231,23 @@
 	<input type="submit" id="send" name="sendMail" value="Envoyer">
 </section>
 
-<section id="newsletterSubscribeSection">
-	<div class="headerSection">
-		<h1>S'incrire a nos Newsletter</h1>
-		<h2>Nous sommes là pour vous tenir au courant</h2>
-		<img src="{{asset('img/carte_afrique_contact.png')}}">
-	</div>
-	<img src="{{asset('img/letter.png')}}">
-	<form class="subscribeNewsletter">
-		<img src="{{asset('img/travel.svg')}}">
-		<label for="nameSub">Nom* :</label>
-		<input type="text" name="nameSub" id="nameSub">
-
-		<label for="emailSub">Email* :</label>
-		<input type="text" name="emailSub" id="emailSub">
-	</form>
-	<input type="submit" id="subscribe" name="subscribe" value="S'inscrire">
-</section>
-
 <a href="#mainHeader"><img class="arrow-up" src="{{asset('img/arrows.svg')}}"></a>
 
 <footer>
 	<ul>
 		<li><img src="{{asset('img/facebook-logo.png')}}">Partager notre projet
 et  aidez nous à changer le monde</li>
+		<div id="newsletterFooter" style="font-family: Lato">
+			<h1>Newsletter</h1>
+			<form class="subscribeNewsletter">
+				<label class="labelNewsletter" for="nameSub">Nom* :</label>
+				<input class="inputNewsletter" type="text" name="nameSub" id="nameSub">
+
+				<label class="labelNewsletter" for="emailSub">Email* :</label>
+				<input class="inputNewsletter" type="text" name="emailSub" id="emailSub">
+			</form>
+			<input type="submit" id="subscribe" name="subscribe" value="S'inscrire">
+		</div>
 		<li><h1>a prendre en main</h1><a href="{{ path("acceuil_default_index")}}"><img src="{{asset('img/logo.png')}}"></a></li>
 	</ul>
 </footer>

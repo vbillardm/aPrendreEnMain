@@ -24,3 +24,25 @@ $(document).ready(function() {
         });
     });
 });
+
+$(document).ready(function() {
+    var form = document.getElementsByClassName('subscribeNewsletter')[0];
+    $('#subscribe').on('click', function() {
+        var name = form.children[1].value;
+        var email = form.children[3].value;
+        $.ajax({
+            method: "POST",
+            url: "/subscribe",
+            data: {
+                name: name,
+                email: email,
+            }
+        }).always(function(data) {
+
+        }).done(function(data) {
+            $.each(form.children, function(e, y) {
+                y.value = "";
+            })
+        });
+    });
+});
