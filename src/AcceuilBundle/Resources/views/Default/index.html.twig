@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/styles.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/progress.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/newsletter.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/list.css')}}">
 
 </head>
 <body style="font-family: Lato">
@@ -75,27 +76,27 @@
 	<div class="leftSide">
 		<h1>{{post.projectTitle}}</h1>
 		<h2>{{post.localisation}}</h2>
-		<ul>
+		<ul class="listeDeroulante">
 			<li>
-				<a href="#" id="context">Contexte</a>
+				<a href="" id="context"><p class="menuitem">Contexte</p></a>
 				<ul id="contextContainer" style="display:none;">
 					<li><p>{{ post.conText }}</p></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#" id="objectifchiffres">Objectifs chiffrés</a>
+				<a href="" id="objectifchiffres"><p class="menuitem">Objectifs chiffrés</p></a>
 				<ul id="objectifsContainer" style="display:none;">
 					<li><p>{{ post.objectifChiffre }}</p></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#" id="coutProjet">Coût du projet</a>
+				<a href="" id="coutProjet"><p class="menuitem">Coût du projet</p></a>
 				<ul id="coutContainer" style="display:none;">
 					<li><p>{{ post.coutProjet }}</p></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#" id="realisationDate">Date de réalisation</a>
+				<a href="" id="realisationDate"><p class="menuitem">Date de réalisation</p></a>
 				<ul id="dateContainer" style="display:none;">
 					<li><p>{{ post.dateRealisation }}</p></li>
 				</ul>
@@ -185,7 +186,7 @@
 			<span class="highlightText"></span>
 			<h2>{{new.title}}</h2>
 			<p>{{new.description|slice(0, 100)}} ...
-			<a class="more" target="_blank" href="news/{{new.id}}">Lire la suite</a>
+			<a class="more" target="_blank" href="{{ path("new_show", { 'id': new.id, "news":new} )}}">Lire la suite</a>
 			</p>
 			</div>
 		</div>
