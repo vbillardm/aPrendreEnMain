@@ -188,7 +188,7 @@
 		<label for="email">Email* :</label>
 		<input type="text" name="email" id="email">
 
-		<label for="subjet">Sujet</label>
+		<label for="subject">Sujet</label>
 		<input type="text" name="subject" id="subject">
 
 		<textarea placeholder="Message"></textarea>
@@ -196,6 +196,168 @@
 	<input type="submit" id="send" name="sendMail" value="Envoyer">
 </section>
 
+<section id="newsletterSubscribeSection">
+	<div class="headerSection">
+		<h1>S'incrire à nos Newsletter</h1>
+		<h2>Nous sommes là pour vous tenir au courant</h2>
+		<img src="{{asset('img/carte_afrique_contact.png')}}">
+	</div>
+	<img src="{{asset('img/letter.png')}}">
+	<form class="subscribeNewsletter">
+		<img src="{{asset('img/travel.svg')}}">
+		<label for="nameSub">Nom* :</label>
+		<input type="text" name="nameSub" id="nameSub">
+
+		<label for="emailSub">Email* :</label>
+		<input type="text" name="emailSub" id="emailSub">
+	</form>
+	<input type="submit" id="subscribe" name="subscribe" value="S'inscrire">
+</section>
+<style>
+	#newsletterSubscribeSection{
+		position:relative
+	}
+
+	#newsletterSubscribeSection .headerSection{
+		background-color:#78A4D7;
+		padding:50px 0;
+		z-index:1;
+		width:100%;
+		margin-top:100px;
+		position:relative;
+		height:150px
+	}
+
+	#newsletterSubscribeSection .headerSection h1{
+		font-size:48px;color:#fff;
+		line-height:38px;
+		z-index:3;
+		margin-left:50px;
+		margin-top:40px
+	}
+
+	@media (max-width:600px){
+		#newsletterSubscribeSection .headerSection h1{
+			width:320px;
+			font-size:36px
+		}
+	}
+
+	#newsletterSubscribeSection .headerSection h2{
+		color:#fff;
+		font-size:18px;
+		width:200px;
+		line-height:20px;
+		margin-left:50px
+	}
+
+	#newsletterSubscribeSection .headerSection img{
+		opacity:.3;
+		position:absolute;
+		top:20px;
+		left:150px
+	}
+
+	#newsletterSubscribeSection img{
+		position:absolute;
+		top:100px;
+		z-index:4;
+		right:100px;
+		width:250px
+	}
+
+	#newsletterSubscribeSection form{
+		height:250px;
+		background-color:#f8f8f8;
+		margin-top:40px;
+		padding:100px;
+		position:relative
+	}
+
+	#newsletterSubscribeSection form img{
+		position:absolute;
+		right:100px;
+		top:150px
+	}
+
+	#newsletterSubscribeSection form label{
+		position:relative;
+		font-size:18px
+	}
+
+	#newsletterSubscribeSection form label:after{
+		content:'';
+		display:block;
+		width:300px;
+		height:1px;
+		background-color:#121212;
+		position:absolute;
+		bottom:-25px;
+		transition-duration:.5s
+	}
+
+	#newsletterSubscribeSection form input:focus~label:after{
+		display:none
+	}
+
+	footer,footer ul,footer ul li{
+		display:-ms-flexbox
+	}
+
+	#newsletterSubscribeSection form input{
+		display:block;
+		height:30px;
+		background-color:transparent;
+		width:320px;
+		border:none;
+		outline:0;
+		padding-bottom:20px;
+		color:#78A4D7;
+		font-weight:700;
+		font-size:14px;
+		margin-bottom:50px;
+		text-transform:uppercase
+	}
+
+	@media (max-width:600px){
+		#newsletterSubscribeSection img{
+			width:150px;
+			top:170px
+		}
+		#newsletterSubscribeSection form{
+			padding:25px;
+			height:600px
+		}
+		#newsletterSubscribeSection form img{
+			display:none
+		}
+		#newsletterSubscribeSection form textarea{
+			width:280px
+		}
+		#newsletterSubscribeSection form input{
+			width:250px
+		}
+	}
+
+	#newsletterSubscribeSection #subscribe{
+		width:230px;
+		height:60px;
+		background-color:#78A4D7;
+		border-radius:40px;
+		border:none;
+		color:#fff;
+		font-size:18px;
+		font-weight:100;
+		margin:50px auto;
+		display:block
+	}
+
+	#newsletterSubscribeSection #subscribe:hover{
+		border:2px solid #78A4D7;
+		background-color:#fff;
+		color:#78A4D7
+	}
+</style>
 <a href="#mainHeader"><img class="arrow-up" src="{{asset('img/arrows.svg')}}"></a>
 
 <footer>

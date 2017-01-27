@@ -2,6 +2,7 @@
 
 namespace AcceuilBundle\Controller;
 
+use AcceuilBundle\Entity\Mail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -56,8 +57,8 @@ class AdminController extends Controller
 
       $message = \Swift_Message::newInstance()
             ->setSubject($sujet)
-            ->setFrom("aprendreenmain17@gmail.com")
-            ->setTo("aprendreenmain17@gmail.com")
+            ->setFrom("yanistam@hotmail.fr")
+            ->setTo("yanistam@hotmail.fr")
             ->setBody("Vous avez reçu un mail de la part de :".$name."<br>Email du contact:".$email."<br>Contenu du mail: ".$content, 'text/html');
       $this->get('mailer')->send($message);
       $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
@@ -68,5 +69,33 @@ class AdminController extends Controller
         'users' =>$users,
         'customs'=>$custom,
       ));
+    }
+
+    /**
+     * Subscribe to newsletter
+     *
+     * @Route("/subscribe", name="subscribe_mail")
+     * @param Request $request
+     * @Method({"POST"})
+     */
+    public function subscribeNewsletter(Request $request){
+        $mail = new Mail();
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('AcceuilBundle:User')->findAll();
+        $user = $this->getUser();
+        $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
+        $name = $request->request->get('name');
+        $email = $request->request->get('email');
+
+        $mail->setName($name);
+        $mail->setEmail($email);
+        $em->persist($mail);
+        $em->flush($mail);
+
+        return $this->render('AcceuilBundle:default:index.html.twig', array(
+            'user'=>$user,
+            'users'=>$users,
+            'customs'=>$custom,
+        ));
     }
 }
