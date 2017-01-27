@@ -21,6 +21,7 @@
                   <td>{{ news.title }}</td>
                   <td>{{ news.description }}</td>
                   <td>
+                    {% if user %}
                       <ul>
                           <li>
                               <a href="{{ path('news_show', { 'id': news.id }) }}">Inspecter</a>
@@ -31,9 +32,11 @@
                       </ul>
                   </td>
               </tr>
-          {% endfor %}
+
           </tbody>
       </table>
       <a href="{{ path('news_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
     </div>
+    {% endif %}
+  {% endfor %}
 {% endblock %}

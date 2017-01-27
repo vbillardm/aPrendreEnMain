@@ -23,7 +23,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\OnetoMany(targetEntity="Post", mappedBy="Post")
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="Post")
      */
     protected $posts;
 
