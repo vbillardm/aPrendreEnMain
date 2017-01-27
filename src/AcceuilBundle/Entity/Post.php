@@ -64,7 +64,7 @@ class Post
      * @var string
      * // POur la article //
      * @ORM\JoinColumn(name="User_id", referencedColumnName="id")
-     * @ORM\ManytoOne(targetEntity="User", inversedBy="Post")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="Post")
      */
     private $author;
 
