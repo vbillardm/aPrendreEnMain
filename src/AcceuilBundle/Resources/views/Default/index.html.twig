@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../node_modules/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="../node_modules/slick-carousel/slick/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/styles.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/progress.css')}}">
 
 </head>
 <body style="font-family: Lato">
@@ -108,8 +109,10 @@
 	<div class="financialDetails">
 		<span class="joinUs">Rejoins nous</span>
 		<span class="fundingSite">sur Ulule</span>
-		<p class="financialNumbers"><span>2 500</span>/{{post.cost}}€ récoltés pour</p>
-		<div class="progressionBar"></div>
+		<p class="financialPercentage"></p>
+		<p class="financialNumbers">
+			des fonds récoltés pour
+		</p><br/></br/>
 		<ul>
 		<li><img src="{{asset('img/wrench.png')}}">Les travaux</li>
 		<li><img src="{{asset('img/helmet.png')}}">L'équipement nécessaire</li>
@@ -203,7 +206,7 @@
 
 <section id="newsletterSubscribeSection">
 	<div class="headerSection">
-		<h1>S'incrire à nos Newsletter</h1>
+		<h1>S'incrire a nos Newsletter</h1>
 		<h2>Nous sommes là pour vous tenir au courant</h2>
 		<img src="{{asset('img/carte_afrique_contact.png')}}">
 	</div>
@@ -375,10 +378,7 @@ et  aidez nous à changer le monde</li>
 </footer>
 </body>
 
-<script
-src="//code.jquery.com/jquery-3.1.1.min.js"
-integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-crossorigin="anonymous"></script>
+<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
@@ -386,38 +386,6 @@ crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////
-<form class="sendmail" method="post" style="display: none">
-  <input type="text" name="subject" placeholder="Sujet">
-  <input type="text" name="email" placeholder="Email">
-  <input type="text" name="name" placeholder="Name">
-  <input type="text" name="content" placeholder="Content">
-  <input id="button" type="button">
-</form>
-
 <script type="text/javascript">
 $(document).ready(function() {
     var getData = function() {
@@ -439,14 +407,16 @@ $(document).ready(function() {
                 var raised = data.amount_raised;
                 var finished = data.finished;
                 var percentage = Math.floor((raised / goal) * 100);
+				$('.financialPercentage').html(percentage + '%');
+				//$('.financialPercentage').css('background-size', '47% 100%');
             }
         });
     }
     getData();
     setInterval(function() {
         getData();
-    }, 10000);
+    }, 500);
 });
 
 </script>
--->
+</html>
