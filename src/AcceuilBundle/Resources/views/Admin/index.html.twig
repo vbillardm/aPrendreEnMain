@@ -7,8 +7,8 @@
       <li role="presentation" class="active"><a href="#articles" aria-controls="profile" role="tab" data-toggle="tab">Articles</a></li>
       <li role="presentation"><a href="#utilisateurs" aria-controls="utilisateurs" role="tab" data-toggle="tab">Utilisateurs</a></li>
       <li role="presentation"><a href="#actualites" aria-controls="actualites" role="tab" data-toggle="tab">Actualités</a></li>
-      <li role="presentation"><a href="#config" aria-controls="config" role="tab" data-toggle="tab">Configuration</a></li>
       <li role="newsletter"><a href="#newsletter" aria-controls="newsletter" role="tab" data-toggle="tab">Newsletter</a></li>
+      <li role="presentation"><a href="#config" aria-controls="config" role="tab" data-toggle="tab">Configuration</a></li>
   </ul><br/>
 
     <div class="tab-content">
@@ -44,7 +44,9 @@
           </tbody>
         </table>
       </div>
+      {% if posts == false %}
           <a href="{{ path('post_new') }}"><button class="btn btn-success">Créer un nouveau post</button></a>
+      {% endif %}
       </div>
       <div role="tabpanel" class="tab-pane" id="utilisateurs">
       <div class="panel panel-default">
@@ -111,6 +113,27 @@
       </div>
       <a href="{{ path('news_new') }}"><button class="btn btn-success">Créer une nouvelle actualité</button></a>
     </div>
+    <div role="tabpanel" class="tab-pane" id="newsletter">
+      <div class="panel panel-default">
+          <table class="table table-hover table-striped">
+              <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Email</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for mail in mails %}
+                  <tr>
+                      <td>{{ mail.name }}</td>
+                      <td>{{ mail.email }}</td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+      </div>
+      <a href="{{ path('newsletter_new') }}"><button class="btn btn-success">Envoyer une newsletter</button></a>
+    </div>
     <div role="tabpanel" class="tab-pane" id="config">
         <div class="panel panel-default">
             <table class="table table-hover table-striped">
@@ -138,27 +161,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="newsletter">
-      <div class="panel panel-default">
-          <table class="table table-hover table-striped">
-              <thead>
-              <tr>
-                  <th>Nom</th>
-                  <th>Email</th>
-              </tr>
-              </thead>
-              <tbody>
-              {% for mail in mails %}
-                  <tr>
-                      <td>{{ mail.name }}</td>
-                      <td>{{ mail.email }}</td>
-                  </tr>
-              {% endfor %}
-              </tbody>
-          </table>
-      </div>
-      <a href="{{ path('newsletter_new') }}"><button class="btn btn-success">Envoyer une newsletter</button></a>
     </div>
   </div>
 {% endblock %}

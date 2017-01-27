@@ -18,8 +18,6 @@ class DefaultController extends Controller
       $posts = $em->getRepository('AcceuilBundle:Post')->findAll();
       $customs = $em->getRepository('AcceuilBundle:Custom')->findAll();
       $user = $this->getUser();
-
-
       return $this->render('AcceuilBundle:Default:index.html.twig',array(
         'posts' => $posts,
         'users' => $users,
