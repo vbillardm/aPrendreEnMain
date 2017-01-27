@@ -5,3 +5,7 @@
 #projectDescription .leftSide p{
     margin-bottom:10px;
 }
+.listeDeroulante .menuitem {
+    color: black;
+    font-size: 14px;
+}
