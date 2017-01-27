@@ -184,7 +184,7 @@
 			<span class="highlightText"></span>
 			<h2>{{new.title}}</h2>
 			<p>{{new.description|slice(0, 100)}} ...
-			<a class="more" target="_blank" href="news/{{new.id}}">Lire la suite</a>
+			<a class="more" target="_blank" href="{{ path("new_show", { 'id': new.id, "news":new} )}}">Lire la suite</a>
 			</p>
 			</div>
 		</div>
