@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../node_modules/slick-carousel/slick/slick-theme.css" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/styles.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/progress.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/newsletter.css')}}">
 
 </head>
 <body style="font-family: Lato">
@@ -73,8 +74,33 @@
 <section id="projectDescription">
 	<div class="leftSide">
 		<h1>{{post.projectTitle}}</h1>
-		<h2>{{post.localisation}})</h2>
-		<p>{{post.conText}}</p>
+		<h2>{{post.localisation}}</h2>
+		<ul>
+			<li>
+				<a href="#" id="context">Contexte</a>
+				<ul id="contextContainer" style="display:none;">
+					<li><p>{{ post.conText }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="objectifchiffres">Objectifs chiffrés</a>
+				<ul id="objectifsContainer" style="display:none;">
+					<li><p>{{ post.objectifChiffre }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="coutProjet">Coût du projet</a>
+				<ul id="coutContainer" style="display:none;">
+					<li><p>{{ post.coutProjet }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="realisationDate">Date de réalisation</a>
+				<ul id="dateContainer" style="display:none;">
+					<li><p>{{ post.dateRealisation }}</p></li>
+				</ul>
+			</li>
+		</ul>
 	</div>
 	<div class="rightSide">
 		<span class="highlightText">60%</span>
@@ -221,151 +247,6 @@
 	</form>
 	<input type="submit" id="subscribe" name="subscribe" value="S'inscrire">
 </section>
-<style>
-	#newsletterSubscribeSection{
-		position:relative
-	}
-
-	#newsletterSubscribeSection .headerSection{
-		background-color:#78A4D7;
-		padding:50px 0;
-		z-index:1;
-		width:100%;
-		margin-top:100px;
-		position:relative;
-		height:150px
-	}
-
-	#newsletterSubscribeSection .headerSection h1{
-		font-size:48px;color:#fff;
-		line-height:38px;
-		z-index:3;
-		margin-left:50px;
-		margin-top:40px
-	}
-
-	@media (max-width:600px){
-		#newsletterSubscribeSection .headerSection h1{
-			width:320px;
-			font-size:36px
-		}
-	}
-
-	#newsletterSubscribeSection .headerSection h2{
-		color:#fff;
-		font-size:18px;
-		width:200px;
-		line-height:20px;
-		margin-left:50px
-	}
-
-	#newsletterSubscribeSection .headerSection img{
-		opacity:.3;
-		position:absolute;
-		top:20px;
-		left:150px
-	}
-
-	#newsletterSubscribeSection img{
-		position:absolute;
-		top:100px;
-		z-index:4;
-		right:100px;
-		width:250px
-	}
-
-	#newsletterSubscribeSection form{
-		height:250px;
-		background-color:#f8f8f8;
-		margin-top:40px;
-		padding:100px;
-		position:relative
-	}
-
-	#newsletterSubscribeSection form img{
-		position:absolute;
-		right:100px;
-		top:150px
-	}
-
-	#newsletterSubscribeSection form label{
-		position:relative;
-		font-size:18px
-	}
-
-	#newsletterSubscribeSection form label:after{
-		content:'';
-		display:block;
-		width:300px;
-		height:1px;
-		background-color:#121212;
-		position:absolute;
-		bottom:-25px;
-		transition-duration:.5s
-	}
-
-	#newsletterSubscribeSection form input:focus~label:after{
-		display:none
-	}
-
-	footer,footer ul,footer ul li{
-		display:-ms-flexbox
-	}
-
-	#newsletterSubscribeSection form input{
-		display:block;
-		height:30px;
-		background-color:transparent;
-		width:320px;
-		border:none;
-		outline:0;
-		padding-bottom:20px;
-		color:#78A4D7;
-		font-weight:700;
-		font-size:14px;
-		margin-bottom:50px;
-		text-transform:uppercase
-	}
-
-	@media (max-width:600px){
-		#newsletterSubscribeSection img{
-			width:150px;
-			top:170px
-		}
-		#newsletterSubscribeSection form{
-			padding:25px;
-			height:600px
-		}
-		#newsletterSubscribeSection form img{
-			display:none
-		}
-		#newsletterSubscribeSection form textarea{
-			width:280px
-		}
-		#newsletterSubscribeSection form input{
-			width:250px
-		}
-	}
-
-	#newsletterSubscribeSection #subscribe{
-		width:230px;
-		height:60px;
-		background-color:#78A4D7;
-		border-radius:40px;
-		border:none;
-		color:#fff;
-		font-size:18px;
-		font-weight:100;
-		margin:50px auto;
-		display:block
-	}
-
-	#newsletterSubscribeSection #subscribe:hover{
-		border:2px solid #78A4D7;
-		background-color:#fff;
-		color:#78A4D7
-	}
-</style>
 
 <a href="#mainHeader"><img class="arrow-up" src="{{asset('img/arrows.svg')}}"></a>
 
@@ -381,6 +262,7 @@ et  aidez nous à changer le monde</li>
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/list.js')}}"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/slick-carousel/slick/slick.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
