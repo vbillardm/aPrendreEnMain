@@ -62,8 +62,8 @@ class AdminController extends Controller
 
       $message = \Swift_Message::newInstance()
             ->setSubject($sujet)
-            ->setFrom("yanistam@hotmail.fr")
-            ->setTo("yanistam@hotmail.fr")
+            ->setFrom("aprendreenmain17@gmail.com")
+            ->setTo("aprendreenmain17@gmail.com")
             ->setBody("Vous avez reçu un mail de la part de :".$name."<br>Email du contact:".$email."<br>Contenu du mail: ".$content, 'text/html');
       $this->get('mailer')->send($message);
       $custom = $em->getRepository('AcceuilBundle:Custom')->findAll();
