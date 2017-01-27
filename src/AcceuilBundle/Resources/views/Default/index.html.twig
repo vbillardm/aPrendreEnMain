@@ -73,8 +73,33 @@
 <section id="projectDescription">
 	<div class="leftSide">
 		<h1>{{post.projectTitle}}</h1>
-		<h2>{{post.localisation}})</h2>
-		<p>{{post.conText}}</p>
+		<h2>{{post.localisation}}</h2>
+		<ul>
+			<li>
+				<a href="#" id="context">Contexte</a>
+				<ul id="contextContainer" style="display:none;">
+					<li><p>{{ post.conText }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="objectifchiffres">Objectifs chiffrés</a>
+				<ul id="objectifsContainer" style="display:none;">
+					<li><p>{{ post.objectifChiffre }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="coutProjet">Coût du projet</a>
+				<ul id="coutContainer" style="display:none;">
+					<li><p>{{ post.coutProjet }}</p></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id="realisationDate">Date de réalisation</a>
+				<ul id="dateContainer" style="display:none;">
+					<li><p>{{ post.dateRealisation }}</p></li>
+				</ul>
+			</li>
+		</ul>
 	</div>
 	<div class="rightSide">
 		<span class="highlightText">60%</span>
@@ -237,6 +262,7 @@ integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{asset('js/app.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/list.js')}}"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/slick-carousel/slick/slick.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
