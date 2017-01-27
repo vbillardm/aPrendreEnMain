@@ -134,9 +134,10 @@
 	</div>
 	<div class="financialDetails">
 		<span class="joinUs">Rejoins nous</span>
-		<span class="fundingSite">sur Ulule</span>
+		<a href="#" class="ululeLink"><span class="fundingSite">sur Ulule</span></a>
 		<p class="financialPercentage"></p>
 		<p class="financialNumbers">
+			(<span class="amountRaised">1</span>/<span class="amountTarget">1</span>€ )<br/>
 			des fonds récoltés pour
 		</p><br/></br/>
 		<ul>
@@ -290,8 +291,12 @@ $(document).ready(function() {
                 var finished = data.finished;
                 var percentage = Math.floor((raised / goal) * 100);
 				$('.financialPercentage').html(percentage + '%');
-				$('.financialPercentage').css('background-size', '100% 100%');
-            }
+				$('.ululeLink').attr('href', link);
+				$('.amountRaised').html(raised);
+				$('.amountTarget').html(goal);
+
+
+			}
         });
     }
     getData();
